@@ -1,0 +1,4 @@
+#include "$MAGNETICFIELDROOT/share/MagneticField.txt"
+
+ApplicationMgr.DLLs += {"ExtractRecInfo"};
+ApplicationMgr.TopAlg += { "ExtractSingleParticle" };
