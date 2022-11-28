@@ -21,11 +21,15 @@ import matplotlib.pyplot as plt
 
 this_path = os.path.dirname(__file__)
 
-def root2Df(root_files):
+def root2Df(root_files, kal=False):
     df = readRootFiles(root_files)
-    df['theta'] = df.apply(pxpypz2Theta, axis=1)
+    df['theta'] = df.apply(pxpypz2Theta, axis=1, args=[kal])
     
-    p_loc, p_scale = fitNorm(df['mdc_p'])
+    if kal:
+        p = df['kal_p']
+    else:
+        p = df['mdc_p']
+    p_loc, p_scale = fitNorm(p)
     theta_loc, theta_scale = fitNorm(df['theta'])
 
     return pd.Series([p_loc, p_scale, theta_loc, theta_scale, df.shape[0]])
@@ -38,11 +42,15 @@ def fitNorm(data):
     ]
     dist = distfit(todf=True, distr='norm', bins=50)
     dist.fit_transform(data)
-    dist.plot(figsize=(6,3))
+    # dist.plot(figsize=(6,3))
     return dist.summary['loc'].values[0], dist.summary['scale'].values[0]
 
-def pxpypz2Theta(df):
-    return math.acos(df['mdc_pz'] / np.linalg.norm(np.array([df['mdc_px'],df['mdc_py'],df['mdc_pz']])))
+def pxpypz2Theta(df, kal=False):
+    if kal:
+        px, py, pz = df['kal_px'], df['kal_py'], df['kal_pz']
+    else:
+        px, py, pz = df['mdc_px'], df['mdc_py'], df['mdc_pz']
+    return math.acos(pz / np.linalg.norm(np.array([px,py,pz])))
 
 def pthetaphi2Pxpypz(p, theta, phi):
     px = p * math.sin(theta) * math.cos(phi)
@@ -71,7 +79,7 @@ def readOneFile(root_file):
     p_index = [np.argmax(p) if len(p) else None for p in tree['mdc_p'].array()]
     print(tree['mdc_p'].array())
 
-    for key in ['mdc_p', 'mdc_px', 'mdc_py', 'mdc_pz']:
+    for key in [k for k in tree.keys() if 'p' in k]:
         tmp = tree[key].array()
         df[key] = [tmp[i][p_index[i]] for i in range(len(p_index)) if not p_index[i] is None]
 

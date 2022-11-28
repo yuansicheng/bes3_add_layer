@@ -93,6 +93,12 @@ bool ExtractSingleParticle::bookNTuple(){
         m_tuple->addIndexedItem("mdc_py", m_ntrack, m_mdc_py);
         m_tuple->addIndexedItem("mdc_pz", m_ntrack, m_mdc_pz);
 
+        // kal track info
+        m_tuple->addIndexedItem("kal_p", m_ntrack, m_kal_p);
+        m_tuple->addIndexedItem("kal_px", m_ntrack, m_kal_px);
+        m_tuple->addIndexedItem("kal_py", m_ntrack, m_kal_py);
+        m_tuple->addIndexedItem("kal_pz", m_ntrack, m_kal_pz);
+
         // part id
         m_tuple->addIndexedItem("is_e", m_ntrack, m_is_e);
         m_tuple->addIndexedItem("is_mu", m_ntrack, m_is_mu);
@@ -111,9 +117,7 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
     HepVector mdc_track_distance;
     for(EvtRecTrackCol::iterator trk=evt_rec_trk_col->begin(); trk!= evt_rec_trk_col->end(); trk++){
         m_track_id[m_ntrack] = (*trk)->trackId();
-
-        log << MSG::DEBUG << "(*trk)->isElectron(): " << (*trk)->isElectron() << endmsg;
-        log << MSG::DEBUG << "(*trk)->isProton(): " << (*trk)->isProton() << endmsg;
+        
 
         m_is_e[m_ntrack] = (*trk)->isElectron();
         m_is_mu[m_ntrack] = (*trk)->isMuon();
@@ -129,6 +133,18 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
             m_mdc_px[m_ntrack] = mdc_track->px();
             m_mdc_py[m_ntrack] = mdc_track->py();
             m_mdc_pz[m_ntrack] = mdc_track->pz();
+
+        }
+
+        // extract kalman track info
+        if ((*trk)->isMdcKalTrackValid()){           
+            RecMdcKalTrack* kal_track = (*trk)->mdcKalTrack();
+            log << MSG::DEBUG << "kal_track->getPidType(): " << kal_track->getPidType() << endmsg;
+            m_kal_p[m_ntrack] = kal_track->p();
+
+            m_kal_px[m_ntrack] = kal_track->px();
+            m_kal_py[m_ntrack] = kal_track->py();
+            m_kal_pz[m_ntrack] = kal_track->pz();
 
         }
 

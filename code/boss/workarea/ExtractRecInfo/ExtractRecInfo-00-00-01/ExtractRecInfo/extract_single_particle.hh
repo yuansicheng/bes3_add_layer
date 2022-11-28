@@ -33,6 +33,11 @@ class ExtractSingleParticle : public Algorithm {
             NTuple::Array<double> m_mdc_py;
             NTuple::Array<double> m_mdc_pz;
 
+            NTuple::Array<double> m_kal_p;
+            NTuple::Array<double> m_kal_px;
+            NTuple::Array<double> m_kal_py;
+            NTuple::Array<double> m_kal_pz;
+
             NTuple::Array<bool> m_is_e;
             NTuple::Array<bool> m_is_mu;
             NTuple::Array<bool> m_is_pi;

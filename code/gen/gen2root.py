@@ -13,9 +13,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--name', type=str, default='single_p+_fixed_enery_and_direction')
 parser.add_argument('--boss_env', type=str, default='../boss/boss_env.sh')
 
-parser.add_argument('--do_sim', type=bool, default=True)
-parser.add_argument('--do_rec', type=bool, default=True)
-parser.add_argument('--do_root', type=bool, default=True)
+parser.add_argument('--do_sim', type=int, default=1)
+parser.add_argument('--do_rec', type=int, default=1)
+parser.add_argument('--do_root', type=int, default=1)
 
 parser.add_argument('--job_option_template_sim', type=str, default='job_option_sim.txt')
 parser.add_argument('--job_option_template_rec', type=str, default='job_option_sim2rec.txt')
