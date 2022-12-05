@@ -122,7 +122,13 @@ void BesPip::DefineMaterial()
   density = 0.0708*g/cm3;
   a_h = 1.0*g/mole;
   LH = new G4Material(name="LH",1,a_h,density);
-
+  // CsI
+  density = 4.51*g/cm3;
+  G4Element* Cs  = new G4Element(name="Cs"  ,symbol="Cs" , z= 55., 132.9*g/mole);
+  G4Element* I  = new G4Element(name="I"  ,symbol="I" , z= 53., 126.9*g/mole);
+  CsI = new G4Material(name="CsI",density,nel=2);
+  CsI->AddElement(Cs, natoms=1);
+  CsI->AddElement(I, natoms=1);
 }
 
 void BesPip::Construct(G4LogicalVolume* logicalbes)
@@ -173,6 +179,7 @@ void BesPip::Construct(G4LogicalVolume* logicalbes)
               << outerBe[1]+m_lh << ", "
               << outerBe[2]/2 << std::endl;
     G4Tubs* solidLhLayer = new G4Tubs("solidLhLayer",outerBe[1],outerBe[1]+m_lh,outerBe[2]/2,0,360);
+    // logicalLhLayer = new G4LogicalVolume(solidLhLayer, G4Material::GetMaterial("Cesiumiodide"),"logicalLhLayer");
     logicalLhLayer = new G4LogicalVolume(solidLhLayer, Oil,"logicalLhLayer");
     physicalLhLayer = new G4PVPlacement(0,G4ThreeVector(0,0,0),logicalLhLayer,"physicalLhLayer",logicalPip,false,0);
   }

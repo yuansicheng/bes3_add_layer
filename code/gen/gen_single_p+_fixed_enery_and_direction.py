@@ -13,5 +13,5 @@ if this_path not in sys.path:
 
 for lh in range(0,21,5):
 # for lh in [20]:
-    cmd = 'python gen2root.py --lh {} --do_sim 0 --do_rec 0'.format(lh)
+    cmd = 'python gen2root.py --lh {}'.format(lh)
     os.system(cmd)
