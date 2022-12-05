@@ -1,5 +1,5 @@
-#ifndef IADDLATERSVCSVC_H_
-#define IADDLATERSVCSVC_H_
+#ifndef IADDLAYERSVC_H_
+#define IADDLAYERSVC_H_
 
 #include "GaudiKernel/IInterface.h"
 #include "GaudiKernel/Kernel.h"
@@ -14,10 +14,11 @@ class IAddLayerSvc: virtual public IInterface{
         static const InterfaceID& interfaceID() { return IID_IAddLayerSvc; }
 
         virtual bool getAddLayerFlag()=0;
-        virtual G4Material* getMaterial(std::string&)=0;
+        virtual G4Material* getMaterial(std::string)=0;
 
         virtual float getThickness()=0;
         virtual int getParticleType()=0;
+        virtual std::string getMaterialName()=0;
 };
 
 #endif

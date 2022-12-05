@@ -77,7 +77,7 @@ void AddLayerSvc::setMaterial(){
     
 }
 
-G4Material* AddLayerSvc::getMaterial(std::string& material_name){
+G4Material* AddLayerSvc::getMaterial(std::string material_name){
     MsgStream log(messageService(), name());
     std::map<std::string, G4Material*>::iterator it;
     it = m_material_map.find(material_name);

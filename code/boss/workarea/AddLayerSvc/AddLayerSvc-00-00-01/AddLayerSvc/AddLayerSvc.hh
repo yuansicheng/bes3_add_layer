@@ -1,5 +1,5 @@
-#ifndef ADDLATERSVCSVC_H_
-#define ADDLATERSVCSVC_H_
+#ifndef ADDLAYERSVC_H_
+#define ADDLAYERSVC_H_
 
 #include "GaudiKernel/IInterface.h"
 #include "GaudiKernel/Kernel.h"
@@ -21,11 +21,13 @@ class AddLayerSvc: public Service, virtual public IAddLayerSvc{
         virtual StatusCode initialize();
         virtual StatusCode finalize();
 
-        bool getAddLayerFlag(){return m_add_layer_flag;};
-        G4Material* getMaterial(std::string&);
+        bool getAddLayerFlag(){return m_add_layer_flag;}
+        G4Material* getMaterial(std::string);
 
-        float getThickness(){return m_thickness;};
-        int getParticleType(){return m_particle_type;};
+        float getThickness(){return m_thickness;}
+        int getParticleType(){return m_particle_type;}
+
+        std::string getMaterialName(){return m_material;}
 
     private:
         bool m_add_layer_flag;

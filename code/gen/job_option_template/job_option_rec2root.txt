@@ -1,0 +1,19 @@
+#include "$ROOTIOROOT/share/jobOptions_ReadRec.txt"
+
+#include "$EXTRACTRECINFOROOT/share/job_option_single_particle.txt"
+
+//**************AddLayerSvc******************
+#include "$ADDLAYERSVCROOT/share/jobOptions_AddLayerSvc.txt"
+AddLayerSvc.AddLayerFlag = false;
+AddLayerSvc.ParticleType = 2;
+
+// Set output level threshold (2=DEBUG, 3=INFO, 4=WARNING, 5=ERROR, 6=FATAL )
+MessageSvc.OutputLevel = 5;
+
+// Number of events to be processed (default is 10)
+ApplicationMgr.EvtMax = -1;
+
+//input and output
+EventCnvSvc.digiRootInputFile = {"test.rec"};
+ApplicationMgr.HistogramPersistency = "ROOT";
+NTupleSvc.Output = { "FILE1 DATAFILE='test.root' OPT='NEW' TYP='ROOT'"};

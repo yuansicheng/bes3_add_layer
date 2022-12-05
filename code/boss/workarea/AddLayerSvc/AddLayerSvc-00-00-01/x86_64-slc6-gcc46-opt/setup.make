@@ -1,7 +1,7 @@
 ----------> uses
-# use GaudiInterface GaudiInterface-01-* External
-#   use GaudiKernel *  (no_version_directory)
-#     use GaudiPolicy *  (no_version_directory)
+# use BesPolicy BesPolicy-01-* 
+#   use BesCxxPolicy BesCxxPolicy-* 
+#     use GaudiPolicy v*  (no_version_directory)
 #       use LCG_Settings *  (no_version_directory)
 #       use Python * LCG_Interfaces (no_auto_imports) (no_version_directory) (native_version=2.7.3)
 #         use LCG_Configuration v*  (no_version_directory)
@@ -12,6 +12,11 @@
 #         use libunwind v* LCG_Interfaces (no_version_directory) (native_version=5c2cade)
 #           use LCG_Configuration v*  (no_version_directory)
 #           use LCG_Settings v*  (no_version_directory)
+#   use BesFortranPolicy BesFortranPolicy-* 
+#     use LCG_Settings v*  (no_version_directory)
+# use GaudiInterface GaudiInterface-01-* External
+#   use GaudiKernel *  (no_version_directory)
+#     use GaudiPolicy *  (no_version_directory)
 #     use Reflex * LCG_Interfaces (no_version_directory)
 #       use LCG_Configuration v*  (no_version_directory)
 #         use LCG_Platforms *  (no_version_directory)
@@ -62,6 +67,7 @@ use BesCLHEP BesCLHEP-00-00-11 External (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.
 use BesGeant4 BesGeant4-00-00-11 External (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use xrootd v1 LCG_Interfaces (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/LCGCMT/LCGCMT_65a) (no_auto_imports)
 use GCCXML v1 LCG_Interfaces (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/LCGCMT/LCGCMT_65a) (no_auto_imports)
+use BesFortranPolicy BesFortranPolicy-00-01-03  (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use libunwind v1 LCG_Interfaces (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/LCGCMT/LCGCMT_65a) (no_auto_imports)
 use tcmalloc v1 LCG_Interfaces (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/LCGCMT/LCGCMT_65a) (no_auto_imports)
 use Python v1 LCG_Interfaces (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/LCGCMT/LCGCMT_65a) (no_auto_imports)
@@ -72,11 +78,13 @@ use GaudiPolicy v12r7  (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalL
 use GaudiKernel v28r8  (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9)
 use GaudiSvc v19r4  (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9)
 use GaudiInterface GaudiInterface-01-03-07 External (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
+use BesCxxPolicy BesCxxPolicy-00-01-01  (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
+use BesPolicy BesPolicy-01-05-05  (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 ----------> tags
 CMTv1 (from CMTVERSION)
 CMTr25 (from CMTVERSION)
 CMTp0 (from CMTVERSION)
-Linux (from uname) package [CMT LCG_Platforms] implies [Unix host-linux]
+Linux (from uname) package [CMT LCG_Platforms BesPolicy] implies [Unix host-linux]
 x86_64-slc6-gcc46-opt (from CMTCONFIG) package [LCG_Platforms] implies [target-x86_64 target-slc6 target-gcc46 target-opt]
 boss_no_config (from PROJECT) excludes [boss_config]
 boss_root (from PROJECT) excludes [boss_no_root]
@@ -90,7 +98,7 @@ BOSS_no_config (from PROJECT) excludes [BOSS_config]
 BOSS_root (from PROJECT) excludes [BOSS_no_root]
 BOSS_cleanup (from PROJECT) excludes [BOSS_no_cleanup]
 BOSS_scripts (from PROJECT) excludes [BOSS_no_scripts]
-BOSS_prototypes (from PROJECT) excludes [BOSS_no_prototypes]
+BOSS_no_prototypes (from PROJECT) excludes [BOSS_prototypes]
 BOSS_with_installarea (from PROJECT) excludes [BOSS_without_installarea]
 BOSS_with_version_directory (from PROJECT) excludes [BOSS_without_version_directory]
 GAUDI_no_config (from PROJECT) excludes [GAUDI_config]
@@ -129,6 +137,7 @@ target-linux (from package LCG_Platforms) package [LCG_Platforms] implies [targe
 lcg-compiler (from package LCG_Platforms)
 ROOT_GE_5_15 (from package LCG_Configuration)
 ROOT_GE_5_19 (from package LCG_Configuration)
+HasAthenaRunTime (from package BesPolicy)
 ----------> CMTPATH
 # Add path /junofs/users/yuansc/bes3_add_layer/code/boss/workarea from initialization
 # Add path /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5 from initialization

@@ -391,7 +391,7 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/IService.h \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/INamedInterface.h \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/Bootstrap.h \
- /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/AddLayerSvc/AddLayerSvc-00-00-01/AddLayerSvc/AddLayerSvc.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/InstallArea/include/AddLayerSvc/AddLayerSvc/AddLayerSvc.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/Service.h \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/ServiceLocatorHelper.h \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/IProperty.h \
@@ -439,7 +439,7 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4DataVector.icc \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4ElementVector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4MaterialTable.hh \
- /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/AddLayerSvc/AddLayerSvc-00-00-01/AddLayerSvc/IAddLayerSvc.hh
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/InstallArea/include/AddLayerSvc/AddLayerSvc/IAddLayerSvc.hh
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/MsgStream.h:
 
@@ -1225,7 +1225,7 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/Bootstrap.h:
 
-/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/AddLayerSvc/AddLayerSvc-00-00-01/AddLayerSvc/AddLayerSvc.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/InstallArea/include/AddLayerSvc/AddLayerSvc/AddLayerSvc.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/Service.h:
 
@@ -1321,4 +1321,4 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4MaterialTable.hh:
 
-/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/AddLayerSvc/AddLayerSvc-00-00-01/AddLayerSvc/IAddLayerSvc.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/InstallArea/include/AddLayerSvc/AddLayerSvc/IAddLayerSvc.hh:
