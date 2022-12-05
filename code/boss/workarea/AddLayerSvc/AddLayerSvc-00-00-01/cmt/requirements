@@ -1,0 +1,10 @@
+package AddLayerSvc
+
+use GaudiInterface   GaudiInterface-01-*      External
+use BesGeant4    BesGeant4-00-*   External
+
+include_dirs $(AddLayerSvc_root)
+
+apply_pattern dual_use_library  files="*.cc components/*.cc"
+# apply_pattern component_library
+library AddLayerSvc *.cc components/*.cc

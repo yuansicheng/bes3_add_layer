@@ -1,0 +1,2 @@
+ApplicationMgr.DLLs   += { "AddLayerSvc"};
+ApplicationMgr.ExtSvc += { "AddLayerSvc"};
