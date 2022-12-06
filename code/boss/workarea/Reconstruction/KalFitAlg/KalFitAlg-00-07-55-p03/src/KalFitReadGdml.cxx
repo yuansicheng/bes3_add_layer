@@ -8,8 +8,30 @@
 #include "G4Tubs.hh"
 #include "GDMLProcessor.hh"
 
+#include "GaudiKernel/ISvcLocator.h"
+#include "GaudiKernel/MsgStream.h"
+#include "GaudiKernel/SmartDataPtr.h"
+#include "GaudiKernel/Bootstrap.h"
+#include "AddLayerSvc/AddLayerSvc.hh"
+
 
 void KalFitAlg::setBesFromGdml(void){
+	// yuansc
+	// query AddLayerSvc to get thickness
+	ISvcLocator* svcLocator = Gaudi::svcLocator();
+	IAddLayerSvc* add_layer_svc;
+	StatusCode sc = svcLocator->service("AddLayerSvc", add_layer_svc);
+	if(sc != StatusCode::SUCCESS) {
+		G4cout << "AddLayerSvc\t" << "Error: Can't get AddLayerSvc." << G4endl;
+  	}
+	bool add_layer_flag = add_layer_svc->getAddLayerFlag();
+	G4Material* mat;
+	float thickness;
+	if (add_layer_flag){
+		mat = add_layer_svc->getMaterial(add_layer_svc->getMaterialName());
+		thickness = add_layer_svc->getThickness() / 10.;
+	}
+
 
 	int i(0);
 	double Z(0.),A(0.),Ionization(0.),Density(0.),Radlen(0.);
@@ -206,6 +228,25 @@ void KalFitAlg::setBesFromGdml(void){
 	KalFitMaterial FitGoldLayerMaterial(Z,A/g/mole,Ionization/eV,Density,Radlen/10.);
 	_BesKalmanFitMaterials.push_back(FitGoldLayerMaterial);
 
+	// yuansc, additional layer
+	KalFitMaterial FitAdditionalMaterial = FitAirMaterial;
+	if (add_layer_flag && thickness>0.){
+		Z = 0.;
+		A = 0.;
+		for(i=0; i<mat->GetElementVector()->size(); i++){   
+			Z += (mat->GetElement(i)->GetZ())*
+				(mat->GetFractionVector()[i]);   
+			A += (mat->GetElement(i)->GetA())*   
+				(mat->GetFractionVector()[i]);
+		}
+		Ionization =  mat->GetIonisation()->GetMeanExcitationEnergy();
+		Density = mat->GetDensity()/(g/cm3);
+		Radlen = mat->GetRadlen();
+		std::cout<<"additional layer: Z: "<<Z<<" A: "<<(A/(g/mole))<<" Ionization: "<<(Ionization/eV)<<" Density: "<<Density<<" Radlen: "<<Radlen<<std::endl;
+		KalFitMaterial FitAdditionalMaterial(Z,A/g/mole,Ionization/eV,Density,Radlen/10.);
+		_BesKalmanFitMaterials.push_back(FitAdditionalMaterial);
+	}
+
 
 	/// now construct the cylinders
 	double radius, thick, length , z0;
@@ -239,13 +280,31 @@ void KalFitAlg::setBesFromGdml(void){
 	_BesKalmanFitWalls.push_back(innerwallFilm0Cylinder);
 
 	/// outer air, be attention the calculation of the radius and thick of the air cylinder is special 
+
 	radius = outerBeTub->GetOuterRadius()/(cm);
 	thick  = innerwallTub->GetInnerRadius()/(cm) - outerBeTub->GetOuterRadius()/(cm);
+	// yuansc, if add layer, modify r and thick
+	if (add_layer_flag){
+		radius += thickness;
+		thick -= thickness;
+	}
 	length = 2.0*innerwallTub->GetZHalfLength()/(cm);
 	z0     = 0.0;
 	std::cout<<"outer air: "<<" radius: "<<radius<<" thick:"<<thick<<" length: "<<length<<std::endl;
 	KalFitCylinder outerAirCylinder(&_BesKalmanFitMaterials[4], radius, thick, length , z0);
 	_BesKalmanFitWalls.push_back(outerAirCylinder);
+
+	// yuansc, additional layer
+	if (add_layer_flag && thickness>0.){
+		radius = outerBeTub->GetOuterRadius()/(cm);
+		thick  = thickness;
+		length = 2.0*outerBeTub->GetZHalfLength()/(cm);
+		z0     = 0.0;
+		std::cout<<"additional layer: "<<" radius: "<<radius<<" thick:"<<thick<<" length: "<<length<<std::endl; 
+		KalFitCylinder additinalLayerCylinder(&_BesKalmanFitMaterials[9], radius, thick, length , z0);
+		_BesKalmanFitWalls.push_back(additinalLayerCylinder);
+	}
+
 
 	/// outer Beryllium layer
 	radius = outerBeTub->GetInnerRadius()/(cm);
@@ -282,6 +341,7 @@ void KalFitAlg::setBesFromGdml(void){
 	std::cout<<"gold layer: "<<" radius: "<<radius<<" thick:"<<thick<<" length: "<<length<<std::endl; 
 	KalFitCylinder goldLayerCylinder(&_BesKalmanFitMaterials[8], radius, thick, length , z0);
 	_BesKalmanFitWalls.push_back(goldLayerCylinder);
+
 }
 
 

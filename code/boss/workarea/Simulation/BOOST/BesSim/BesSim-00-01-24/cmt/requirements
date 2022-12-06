@@ -37,6 +37,9 @@ use EventNavigator EventNavigator-* Event
 
 use DetVerSvc DetVerSvc-* Utilities
 
+# yuansc
+use AddLayerSvc *
+
 include_dirs $(BesSim_root)/BesSim   \
              $(SimUtil_root)/SimUtil \
              $(TruSim_root)/TruSim   \

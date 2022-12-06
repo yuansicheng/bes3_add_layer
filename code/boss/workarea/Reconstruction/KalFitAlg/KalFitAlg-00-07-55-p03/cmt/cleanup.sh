@@ -6,9 +6,9 @@ fi
 . ${CMTROOT}/mgr/setup.sh
 cmtKalFitAlgtempfile=`${CMTROOT}/mgr/cmt -quiet build temporary_name`
 if test ! $? = 0 ; then cmtKalFitAlgtempfile=/tmp/cmt.$$; fi
-${CMTROOT}/mgr/cmt cleanup -sh -pack=KalFitAlg -version=KalFitAlg-00-07-55-p03 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Reconstruction  -quiet -with_version_directory $* >${cmtKalFitAlgtempfile}
+${CMTROOT}/mgr/cmt cleanup -sh -pack=KalFitAlg -version=KalFitAlg-00-07-55-p03 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Reconstruction  $* >${cmtKalFitAlgtempfile}
 if test $? != 0 ; then
-  echo >&2 "${CMTROOT}/mgr/cmt cleanup -sh -pack=KalFitAlg -version=KalFitAlg-00-07-55-p03 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Reconstruction  -quiet -with_version_directory $* >${cmtKalFitAlgtempfile}"
+  echo >&2 "${CMTROOT}/mgr/cmt cleanup -sh -pack=KalFitAlg -version=KalFitAlg-00-07-55-p03 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Reconstruction  $* >${cmtKalFitAlgtempfile}"
   cmtcleanupstatus=2
   /bin/rm -f ${cmtKalFitAlgtempfile}
   unset cmtKalFitAlgtempfile

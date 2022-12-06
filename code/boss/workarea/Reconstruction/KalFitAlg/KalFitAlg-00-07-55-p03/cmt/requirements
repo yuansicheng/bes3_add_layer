@@ -26,6 +26,9 @@ use MagneticField   MagneticField-*
 use PartPropSvc  *  
 use VertexFit    VertexFit-*   Analysis 
 
+# yuansc
+use AddLayerSvc *
+
 
 include_dirs "$(KALFITALGROOT)"
 

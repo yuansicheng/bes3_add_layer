@@ -28,8 +28,10 @@ parser.add_argument('--events_per_file', type=float, default=1e3)
 
 parser.add_argument('--add_layer_flag', type=str, default='flase')
 parser.add_argument('--particle_type', type=int, default=2)
-parser.add_argument('--thickness', type=int, default=0)
+parser.add_argument('--thickness', type=float, default=0)
 parser.add_argument('--material', type=str, default='')
+
+parser.add_argument('--run', action='store_true')
 
 args = parser.parse_args()
 
@@ -92,5 +94,6 @@ for i in range(int(args.n/args.events_per_file)):
         f.write('\n'.join(job_content))
 
     os.system('chmod 755 {}'.format(job_file))
-    # os.system('hep_sub {}'.format(job_file))
+    if args.run:
+        os.system('hep_sub {}'.format(job_file))
 

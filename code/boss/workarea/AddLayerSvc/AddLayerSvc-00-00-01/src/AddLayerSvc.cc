@@ -63,11 +63,11 @@ void AddLayerSvc::setMaterial(){
 
     // liquid hydrogen
     density = 0.0708*g/cm3;
-    m_material_map["LH"] = new G4Material(name="LH",1,1.0*g/mole,density);
+    m_material_map["LH"] = new G4Material(name="LH",1,2.02*g/mole,density);
 
     // liquid Deuterium
     density = 0.169*g/cm3;
-    m_material_map["LD"]  = new G4Material(name="LD",1,1.0*g/mole,density);
+    m_material_map["LD"]  = new G4Material(name="LD",1,4.03*g/mole,density);
 
     // CsI
     G4Material* CsI = new G4Material(name="CsI",density,nel=2);

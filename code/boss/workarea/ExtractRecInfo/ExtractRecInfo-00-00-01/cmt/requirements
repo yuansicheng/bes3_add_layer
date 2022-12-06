@@ -13,6 +13,9 @@ use ParticleID   ParticleID-*  Analysis
 use BesROOT      BesROOT-00-*     External
 use McTruth      McTruth-*        Event
 
+# yuansc
+use AddLayerSvc *
+
 apply_pattern component_library
 library ExtractRecInfo  *.cxx  components/*.cxx
 

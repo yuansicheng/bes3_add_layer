@@ -8,9 +8,9 @@ set cmtBesSimtempfile=`${CMTROOT}/mgr/cmt -quiet build temporary_name`
 if $status != 0 then
   set cmtBesSimtempfile=/tmp/cmt.$$
 endif
-${CMTROOT}/mgr/cmt setup -csh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  -quiet -with_version_directory -no_cleanup $* >${cmtBesSimtempfile}
+${CMTROOT}/mgr/cmt setup -csh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  -no_cleanup $* >${cmtBesSimtempfile}
 if ( $status != 0 ) then
-  echo "${CMTROOT}/mgr/cmt setup -csh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  -quiet -with_version_directory -no_cleanup $* >${cmtBesSimtempfile}"
+  echo "${CMTROOT}/mgr/cmt setup -csh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  -no_cleanup $* >${cmtBesSimtempfile}"
   set cmtsetupstatus=2
   /bin/rm -f ${cmtBesSimtempfile}
   unset cmtBesSimtempfile

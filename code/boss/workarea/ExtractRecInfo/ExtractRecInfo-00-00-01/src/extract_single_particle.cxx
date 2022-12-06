@@ -41,6 +41,7 @@
 
 
 #include "ExtractRecInfo/extract_single_particle.hh"
+#include "AddLayerSvc/AddLayerSvc.hh"
 
 ExtractSingleParticle::ExtractSingleParticle(const std::string& name, ISvcLocator* pSvcLocator) : Algorithm(name, pSvcLocator) {   
 }
@@ -112,6 +113,44 @@ bool ExtractSingleParticle::bookNTuple(){
 bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
     MsgStream log(msgSvc(), name());
 
+    // yuansc
+	// query AddLayerSvc to get particle type
+	ISvcLocator* svcLocator = Gaudi::svcLocator();
+	IAddLayerSvc* add_layer_svc;
+	StatusCode sc = svcLocator->service("AddLayerSvc", add_layer_svc);
+	if(sc != StatusCode::SUCCESS) {
+		G4cout << "AddLayerSvc\t" << "Error: Can't get AddLayerSvc." << G4endl;
+  	}
+	bool add_layer_flag = add_layer_svc->getAddLayerFlag();
+    int pid_code;
+    RecMdcKalTrack::PidType pid_type;
+	if (add_layer_flag){
+		pid_code = add_layer_svc->getParticleType();
+        log << MSG::DEBUG << "pid_code: " << pid_code << endmsg;
+	}
+    switch (pid_code)
+    {
+    case 0:
+        pid_type = RecMdcKalTrack::electron;
+        break;
+    case 1:
+        pid_type = RecMdcKalTrack::muon;
+        break;
+    case 2:
+        pid_type = RecMdcKalTrack::pion;
+        break;
+    case 3:
+        pid_type = RecMdcKalTrack::kaon;
+        break;
+    case 4:
+        pid_type = RecMdcKalTrack::proton;
+        break;
+    
+    default:
+        pid_type = RecMdcKalTrack::pion;
+        break;
+    }
+
     SmartDataPtr<EvtRecTrackCol> evt_rec_trk_col(eventSvc(),  EventModel::EvtRec::EvtRecTrackCol);
     m_ntrack = 0;
     HepVector mdc_track_distance;
@@ -139,7 +178,8 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
         // extract kalman track info
         if ((*trk)->isMdcKalTrackValid()){           
             RecMdcKalTrack* kal_track = (*trk)->mdcKalTrack();
-            log << MSG::DEBUG << "kal_track->getPidType(): " << kal_track->getPidType() << endmsg;
+            RecMdcKalTrack::setPidType  (pid_type);
+            log << MSG::DEBUG << "RecMdcKalTrack::getPidType(): " << RecMdcKalTrack::getPidType() << endmsg;
             m_kal_p[m_ntrack] = kal_track->p();
 
             m_kal_px[m_ntrack] = kal_track->px();

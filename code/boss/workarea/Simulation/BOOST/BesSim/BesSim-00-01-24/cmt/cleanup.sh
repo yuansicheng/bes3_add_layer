@@ -6,9 +6,9 @@ fi
 . ${CMTROOT}/mgr/setup.sh
 cmtBesSimtempfile=`${CMTROOT}/mgr/cmt -quiet build temporary_name`
 if test ! $? = 0 ; then cmtBesSimtempfile=/tmp/cmt.$$; fi
-${CMTROOT}/mgr/cmt cleanup -sh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  -quiet -with_version_directory $* >${cmtBesSimtempfile}
+${CMTROOT}/mgr/cmt cleanup -sh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  $* >${cmtBesSimtempfile}
 if test $? != 0 ; then
-  echo >&2 "${CMTROOT}/mgr/cmt cleanup -sh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  -quiet -with_version_directory $* >${cmtBesSimtempfile}"
+  echo >&2 "${CMTROOT}/mgr/cmt cleanup -sh -pack=BesSim -version=BesSim-00-01-24 -path=/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST  $* >${cmtBesSimtempfile}"
   cmtcleanupstatus=2
   /bin/rm -f ${cmtBesSimtempfile}
   unset cmtBesSimtempfile

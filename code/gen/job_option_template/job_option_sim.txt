@@ -23,6 +23,8 @@ AddLayerSvc.AddLayerFlag = false;
 AddLayerSvc.Thickness = 0;
 AddLayerSvc.Material = "";
 
+BesSim.PipeSCM = 1;
+
 // run ID
 RealizationSvc.RunIdList = {-8093};
 

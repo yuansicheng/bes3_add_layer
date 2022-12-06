@@ -22,6 +22,15 @@
 #include "BesPipParameter.hh"
 #include "BesSubdetector.hh"
 
+
+#include "GaudiKernel/ISvcLocator.h"
+#include "GaudiKernel/MsgStream.h"
+#include "GaudiKernel/SmartDataPtr.h"
+#include "GaudiKernel/Bootstrap.h"
+#include "AddLayerSvc/AddLayerSvc.hh"
+
+#include "G4ios.hh"
+
 BesPip::BesPip()
 {
   pipPar = new BesPipParameter();
@@ -86,16 +95,13 @@ BesPip::BesPip()
   Oil = 0;
 
   // yuansc, 11.20
-  m_lh = 0;
-  LH = 0;
-
-  logicalLhLayer = 0;
-  physicalLhLayer = 0;
+  logicalNewLayer = 0;
+  physicalNewLayer = 0;
 }
 
 void BesPip::DefineMaterial()
 {
-  G4double density, a, z,fractionmass, a_h;
+  G4double density, a, z,fractionmass;
   G4int nel,natoms;
   G4String name, symbol;
 
@@ -117,18 +123,6 @@ void BesPip::DefineMaterial()
   Oil = new G4Material(name="Oil",density,nel=2);
   Oil->AddElement(C, natoms=18);
   Oil->AddElement(H, natoms=38);
-
-  // yuansc, 11.20
-  density = 0.0708*g/cm3;
-  a_h = 1.0*g/mole;
-  LH = new G4Material(name="LH",1,a_h,density);
-  // CsI
-  density = 4.51*g/cm3;
-  G4Element* Cs  = new G4Element(name="Cs"  ,symbol="Cs" , z= 55., 132.9*g/mole);
-  G4Element* I  = new G4Element(name="I"  ,symbol="I" , z= 53., 126.9*g/mole);
-  CsI = new G4Material(name="CsI",density,nel=2);
-  CsI->AddElement(Cs, natoms=1);
-  CsI->AddElement(I, natoms=1);
 }
 
 void BesPip::Construct(G4LogicalVolume* logicalbes)
@@ -137,12 +131,36 @@ void BesPip::Construct(G4LogicalVolume* logicalbes)
 
   DefineMaterial();
 
+  // yuansc
+  // query AddLayerSvc to get thickness
+  ISvcLocator* svcLocator = Gaudi::svcLocator();
+  IAddLayerSvc* add_layer_svc;
+  StatusCode sc = svcLocator->service("AddLayerSvc", add_layer_svc);
+  if(sc != StatusCode::SUCCESS) {
+    std::cout << "AddLayerSvc\t" << "Error: Can't get AddLayerSvc." << std::endl;
+  }
+
+  bool add_layer_flag = add_layer_svc->getAddLayerFlag();
+  std::cout << "add_layer_flag\t" << add_layer_flag << std::endl;
+  float thickness;
+  G4Material* mat;
+  if (add_layer_flag){
+      mat = add_layer_svc->getMaterial(add_layer_svc->getMaterialName());     
+      thickness = add_layer_svc->getThickness();
+  }
+
+
    //G4RotationMatrix* xRot = new G4RotationMatrix;
   //xRot->rotateX(90*deg);
 
   //the logical volume of beam pipe
   // G4Tubs* solidPip1 = new G4Tubs("solidPip1",0.,33.7,134,0,360);
-  G4Tubs* solidPip1 = new G4Tubs("solidPip1",0.,59,134,0,360);
+  // yuansc, if add a layer out of pipe, we need to add r of solidPip1
+  float pip1_r = 33.7;
+  if (add_layer_flag && thickness>0.){
+    pip1_r += thickness;
+  }
+  G4Tubs* solidPip1 = new G4Tubs("solidPip1",0.,pip1_r,134,0,360);
   G4Tubs* solidPip2 = new G4Tubs("solidPip2",0.,48,66,0,360);
   G4UnionSolid* solidPip_tmp = new G4UnionSolid("solidPip_tmp",solidPip1,solidPip2,0,G4ThreeVector(0,0,-167));
   G4UnionSolid* solidPip = new G4UnionSolid("solidPip",solidPip_tmp,solidPip2,0,G4ThreeVector(0,0,167));
@@ -170,18 +188,12 @@ void BesPip::Construct(G4LogicalVolume* logicalbes)
   physicalouterBe = new G4PVPlacement(0,G4ThreeVector(0,0,0),logicalouterBe,"physicalouterBe",logicalPip,false,0);
 
   // yuansc, 11.20
-  // add liquid hydrogen
-  // thickness>0 and <59, avoid overlap with mdc
-  std::cout << "m_lh: " << m_lh << std::endl;
-  if (m_lh > 0 && m_lh < 21){
-    std::cout << "add liquid hydrogen" << std::endl;
-    std::cout << outerBe[1] << ", "
-              << outerBe[1]+m_lh << ", "
-              << outerBe[2]/2 << std::endl;
-    G4Tubs* solidLhLayer = new G4Tubs("solidLhLayer",outerBe[1],outerBe[1]+m_lh,outerBe[2]/2,0,360);
-    // logicalLhLayer = new G4LogicalVolume(solidLhLayer, G4Material::GetMaterial("Cesiumiodide"),"logicalLhLayer");
-    logicalLhLayer = new G4LogicalVolume(solidLhLayer, Oil,"logicalLhLayer");
-    physicalLhLayer = new G4PVPlacement(0,G4ThreeVector(0,0,0),logicalLhLayer,"physicalLhLayer",logicalPip,false,0);
+  // add a new layer
+  if (add_layer_flag && thickness>0.){
+    std::cout << "Add a layer out of pipe" << std::endl;
+    G4Tubs* newLayer = new G4Tubs("newLayer",outerBe[1],outerBe[1]+thickness,outerBe[2]/2,0,360);
+    logicalNewLayer = new G4LogicalVolume(newLayer, mat,"logicalNewLayer");
+    physicalNewLayer = new G4PVPlacement(0,G4ThreeVector(0,0,0),logicalNewLayer,"physicalNewLayer",logicalPip,false,0);
   }
 
   //the volume of inner side Be layer

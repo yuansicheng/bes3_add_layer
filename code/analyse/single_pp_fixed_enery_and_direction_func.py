@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 this_path = os.path.dirname(__file__)
 
 def root2Df(root_files, kal=False):
-    df = readRootFiles(root_files)
+    df = readRootFiles(root_files, kal=kal)
     df['theta'] = df.apply(pxpypz2Theta, axis=1, args=[kal])
     
     if kal:
@@ -60,15 +60,15 @@ def pthetaphi2Pxpypz(p, theta, phi):
 
 
 
-def readRootFiles(root_files):
+def readRootFiles(root_files, kal=False):
     df_list = []
     for root_file in root_files:
-        df_list.append(readOneFile(root_file))
+        df_list.append(readOneFile(root_file, kal=kal))
     df = pd.concat(df_list)
 
     return df
 
-def readOneFile(root_file):
+def readOneFile(root_file, kal=False):
     print(root_file)
     rf = uproot.open(root_file)
     tree = rf['RecInfo']
@@ -76,21 +76,29 @@ def readOneFile(root_file):
     df = pd.DataFrame()
 
     # 最大动量为p的index
-    p_index = [np.argmax(p) if len(p) else None for p in tree['mdc_p'].array()]
-    print(tree['mdc_p'].array())
+    if kal:
+        p_index = [np.argmax(p) if len(p) else None for p in tree['kal_p'].array()]
+    else:
+        p_index = [np.argmax(p) if len(p) else None for p in tree['mdc_p'].array()]
 
     for key in [k for k in tree.keys() if 'p' in k]:
         tmp = tree[key].array()
-        df[key] = [tmp[i][p_index[i]] for i in range(len(p_index)) if not p_index[i] is None]
+        df[key] = [tmp[i][p_index[i]] for i in range(len(p_index)) if not p_index[i] is None] 
 
-    
+    rf.close()   
 
     # 去掉异常值
-    mdc_p_mean = np.array(df.mdc_p).mean()
-    mdc_p_std = np.array(df.mdc_p).std()
+    if kal:
+        p = df.kal_p
+        p_mean = np.array(df.kal_p).mean()
+        p_std = np.array(df.kal_p).std()
+    else:
+        p = df.mdc_p
+        p_mean = np.array(df.mdc_p).mean()
+        p_std = np.array(df.mdc_p).std()
     df = df.loc[
-        (df.mdc_p > mdc_p_mean-3*mdc_p_std) & 
-        (df.mdc_p < mdc_p_mean+3*mdc_p_std)
+        (p > p_mean-3*p_std) & 
+        (p < p_mean+3*p_std)
     ]
 
     return df

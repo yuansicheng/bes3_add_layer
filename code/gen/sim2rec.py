@@ -20,7 +20,7 @@ parser.add_argument('--i', type=int)
 parser.add_argument('--template', type=str)
 
 parser.add_argument('--add_layer_flag', type=str, default='flase')
-parser.add_argument('--thickness', type=int, default=0)
+parser.add_argument('--thickness', type=float, default=0)
 parser.add_argument('--material', type=str, default='')
 args = parser.parse_args()
 

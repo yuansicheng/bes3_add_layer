@@ -53,9 +53,6 @@ class BesDetectorConstruction : public G4VUserDetectorConstruction
    G4LogicalVolume* lWorld;
    G4VPhysicalVolume* fWorld;
 
-  // yuansc, 11.20
-  public:
-    void setLh(float lh){m_Pip->setLh(lh);}
 };
 
 #endif

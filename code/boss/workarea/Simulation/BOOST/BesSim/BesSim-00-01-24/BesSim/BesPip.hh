@@ -86,14 +86,8 @@ class BesPip : public BesSubdetector
   G4Material* Ag;
 
   // yuansc, 11.20
-  G4Material* LH;
-  G4Material* CsI;
-  G4LogicalVolume* logicalLhLayer;
-  G4VPhysicalVolume* physicalLhLayer;
-  float m_lh;
-
-public:
-  void setLh(float lh){m_lh = lh;}
+  G4LogicalVolume* logicalNewLayer;
+  G4VPhysicalVolume* physicalNewLayer;
   
 };
 #endif

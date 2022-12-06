@@ -228,6 +228,10 @@
 #   use GaudiInterface GaudiInterface-01-* External
 #   use Identifier Identifier-* DetectorDescription
 #   use RelTable RelTable-* Event
+# use AddLayerSvc * 
+#   use BesPolicy BesPolicy-01-* 
+#   use GaudiInterface GaudiInterface-01-* External
+#   use BesGeant4 BesGeant4-00-* External
 #
 # Selection :
 use CMT v1r25 (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/contrib)
@@ -264,6 +268,7 @@ use GaudiSvc v19r4  (/cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/
 use GaudiInterface GaudiInterface-01-03-07 External (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use BesCxxPolicy BesCxxPolicy-00-01-01  (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use BesPolicy BesPolicy-01-05-05  (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
+use AddLayerSvc AddLayerSvc-00-00-01  (/junofs/users/yuansc/bes3_add_layer/code/boss/workarea)
 use BesTimerSvc BesTimerSvc-00-00-12 Utilities (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use SimUtil SimUtil-00-00-37 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use ROOTGeo ROOTGeo-00-00-15 DetectorDescription (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)

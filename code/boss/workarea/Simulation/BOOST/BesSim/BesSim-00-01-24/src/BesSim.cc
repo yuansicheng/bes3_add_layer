@@ -67,9 +67,6 @@ BesSim::BesSim(const std::string& name, ISvcLocator* pSvcLocator) :
   declareProperty("CutValue", newcut = 0.7);//unite is mm
   declareProperty("LogLevel",m_logLevel=5000);
 
-  // yuansc, 11.20
-  declareProperty("LH", m_lh=0);
-
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
@@ -139,9 +136,6 @@ StatusCode BesSim::initialize(){
   sensitiveManager->SetLogLevel(m_G4Svc->LogLevel());
 
   BesDetectorConstruction* detectorConstruction = new BesDetectorConstruction();
-  // yuansc, 11.20
-  std::cout << "BesSim->m_lh: " << m_lh << std::endl;
-  detectorConstruction->setLh(m_lh);
   
   detectorConstruction->SetPipeSCM(m_pipeSCM);  
   m_G4Svc->SetUserInitialization(detectorConstruction);

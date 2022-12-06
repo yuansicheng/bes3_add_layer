@@ -35,6 +35,6 @@ code/boss/gen
 
 ### 2.3. 分析
 code/boss/analyse
-- single_pp_fixed_enery_and_direction_func.py：提取root文件中的动量信息，对动量和theta分布进行高斯拟合，检查新增物质对重建中心值和精度的影响
+- single_pp_fixed_enery_and_direction_func.py：提取root文件中的动量信息，对动量和theta分布进行高斯拟合，检查新增物质对重建中心值和精度的影响。
 
 

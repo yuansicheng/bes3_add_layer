@@ -53,7 +53,5 @@ private:
 
   int m_logLevel;
 
-  // yuansc, 11.20
-  float m_lh;
 };
 #endif
