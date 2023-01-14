@@ -87,13 +87,13 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4DataVector.icc \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4ElementVector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4MaterialTable.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigi.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4TDigiCollection.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigiCollection.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/globals.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/DetectorDescription/Identifier/Identifier-00-02-17/Identifier/Identifier.h \
  /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/BesSim/BesSim-00-01-24/BesSim/BesEventAction.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4UserEventAction.hh \
@@ -684,11 +684,11 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4HCofThisEvent.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4DCofThisEvent.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VUserEventInformation.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthTrack.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthTrack.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VSensitiveDetector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VHit.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VReadOutGeometry.hh \
@@ -999,7 +999,7 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4MaterialTable.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigi.hh:
 
@@ -1007,11 +1007,11 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigiCollection.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/globals.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/DetectorDescription/Identifier/Identifier-00-02-17/Identifier/Identifier.h:
 
@@ -2193,15 +2193,15 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VUserEventInformation.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthTrack.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthTrack.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesTruthVertex.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VSensitiveDetector.hh:
 

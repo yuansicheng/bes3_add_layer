@@ -17,7 +17,7 @@ from scipy.optimize import curve_fit
 
 import math
 
-from distfit import distfit
+# from distfit import distfit
 
 import matplotlib
 import matplotlib.pyplot as plt

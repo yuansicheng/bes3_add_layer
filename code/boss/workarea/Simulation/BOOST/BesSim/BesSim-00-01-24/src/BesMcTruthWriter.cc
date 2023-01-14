@@ -174,6 +174,11 @@ void BesMcTruthWriter::SaveMcParticle()
 	        // Adding vertex index 
 	        mcParticle->setVertexIndex0(startPoint->GetIndex());
           mcParticle->setVertexIndex1(vertex->GetIndex());
+
+          G4cout << "track->IsKilled() : " << track->IsKilled() << G4endl;
+          if (track->IsKilled()){
+            mcParticle->addStatusFlag(1<<13);            
+          }
           
           // Set the final position 
           HepLorentzVector  finalPosition(vertex->GetPosition().x()/10., vertex->GetPosition().y()/10., vertex->GetPosition().z()/10., vertex->GetTime());

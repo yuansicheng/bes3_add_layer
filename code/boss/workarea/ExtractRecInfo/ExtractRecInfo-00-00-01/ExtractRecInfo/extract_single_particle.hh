@@ -18,12 +18,21 @@ class ExtractSingleParticle : public Algorithm {
 
     private:
         bool bookNTuple();
+        bool getInfoFromMcParticleCol();
         bool getInfoFromEvtRecTrack();
 
         int m_event;
 
         NTuple::Tuple*  m_tuple;
         NTuple::Item<int> m_event_id;
+  
+        NTuple::Item<int> m_pdg_code;
+        NTuple::Item<float> m_momentum;
+        NTuple::Item<float> m_theta;
+        NTuple::Item<float> m_phi;
+        NTuple::Item<bool> m_killed;
+        NTuple::Item<float> m_final_rxy;
+        NTuple::Item<float> m_final_rz;
 
         NTuple::Item<int> m_ntrack;
             NTuple::Array<int> m_track_id;

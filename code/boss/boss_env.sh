@@ -7,4 +7,5 @@ source $BOSS_DIR/workarea/TestRelease/TestRelease-00-00-92/cmt/setup.sh
 
 source $BOSS_DIR/workarea/ExtractRecInfo/ExtractRecInfo-00-00-01/cmt/setup.sh
 source $BOSS_DIR/workarea/AddLayerSvc/AddLayerSvc-00-00-01/cmt/setup.sh
+source $BOSS_DIR/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/cmt/setup.sh
 

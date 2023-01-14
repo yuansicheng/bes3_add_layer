@@ -88,15 +88,15 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4DataVector.icc \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4ElementVector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4MaterialTable.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/DetectorDescription/Identifier/Identifier-00-02-17/Identifier/Identifier.h \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigi.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4TDigiCollection.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigiCollection.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/globals.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/MucSim/MucSim-00-01-03/MucSim/BesMucHit.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VPhysicalVolume.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/geomdefs.hh \
@@ -841,11 +841,11 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4MaterialTable.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/DetectorDescription/Identifier/Identifier-00-02-17/Identifier/Identifier.h:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcDigi.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigi.hh:
 
@@ -853,11 +853,11 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VDigiCollection.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcWaveform.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/globals.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcHit.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/MucSim/MucSim-00-01-03/MucSim/BesMucHit.hh:
 

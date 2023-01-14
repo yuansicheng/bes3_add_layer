@@ -487,7 +487,7 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/BesGDML/2.8.0/x86_64-slc6-gcc46-opt/include/Common/Saxana/Saxana/ProcessingConfigurator.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/MdcSim/MdcSim-00-00-73/MdcSim/BesMdcGeoParameter.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/MdcSim/MdcSim-00-00-73/MdcSim/BesMdcSD.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VSensitiveDetector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VHit.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4Step.hh \
@@ -652,9 +652,9 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VisAttributes.icc \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TofSim/TofSim-00-02-37/TofSim/BesTofConstruction.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TofSim/TofSim-00-02-37/TofSim/BesTofGeoParameter.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcConstruction.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcGeometry.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcEndGeometry.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcConstruction.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcGeometry.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcEndGeometry.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VPVParameterisation.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VVolumeMaterialScanner.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/clhep/2.0.4.5/x86_64-slc6-gcc46-opt/include/CLHEP/Geometry/Plane3D.h \
@@ -681,8 +681,8 @@
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VPhysicsConstructor.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/PhySim/PhySim-00-00-10/PhySim/BgsPhysicsList.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VUserPhysicsList.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh \
- /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh \
+ /junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4TrackingManager.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4SteppingManager.hh \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/Randomize.hh \
@@ -2597,7 +2597,7 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/MdcSim/MdcSim-00-00-73/MdcSim/BesMdcSD.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VSensitiveDetector.hh:
 
@@ -2927,11 +2927,11 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TofSim/TofSim-00-02-37/TofSim/BesTofGeoParameter.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcConstruction.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcConstruction.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcGeometry.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcGeometry.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcEndGeometry.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/EmcSim/EmcSim-00-00-46/EmcSim/BesEmcEndGeometry.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VPVParameterisation.hh:
 
@@ -2985,9 +2985,9 @@
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4VUserPhysicsList.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveManager.hh:
 
-/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh:
+/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/TruSim/BesSensitiveDetector.hh:
 
 /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/external/geant4/4.9.3p01/x86_64-slc6-gcc46-opt/include/G4TrackingManager.hh:
 

@@ -60,8 +60,8 @@ StatusCode ExtractSingleParticle::execute(){
     MsgStream log(msgSvc(), name());		
 	log << MSG::DEBUG << "in execute()" << endmsg;
 
+    getInfoFromMcParticleCol();
     getInfoFromEvtRecTrack();
-
 
     m_tuple->write();
     log << MSG::DEBUG << "m_event: " << m_event << endmsg;
@@ -85,6 +85,15 @@ bool ExtractSingleParticle::bookNTuple(){
     m_tuple = ntupleSvc()->book ("FILE1/RecInfo", CLID_ColumnWiseTuple, "N-Tuple");
     m_tuple->addItem("event_id", m_event_id);
 
+    // mc partical
+    m_tuple->addItem("pdg_code", m_pdg_code);
+    m_tuple->addItem("momentum", m_momentum);
+    m_tuple->addItem("theta", m_theta);
+    m_tuple->addItem("phi", m_phi);
+    m_tuple->addItem("killed", m_killed);
+    m_tuple->addItem("final_rxy", m_final_rxy);
+    m_tuple->addItem("final_rz", m_final_rz);
+
     m_tuple->addItem("ntrack", m_ntrack, 0, 100);
         m_tuple->addIndexedItem("trick_id", m_ntrack, m_track_id);
 
@@ -100,12 +109,38 @@ bool ExtractSingleParticle::bookNTuple(){
         m_tuple->addIndexedItem("kal_py", m_ntrack, m_kal_py);
         m_tuple->addIndexedItem("kal_pz", m_ntrack, m_kal_pz);
 
-        // part id
-        m_tuple->addIndexedItem("is_e", m_ntrack, m_is_e);
-        m_tuple->addIndexedItem("is_mu", m_ntrack, m_is_mu);
-        m_tuple->addIndexedItem("is_pi", m_ntrack, m_is_pi);
-        m_tuple->addIndexedItem("is_k", m_ntrack, m_is_k);
-        m_tuple->addIndexedItem("is_p", m_ntrack, m_is_p);
+    return true;
+}
+
+bool ExtractSingleParticle::getInfoFromMcParticleCol(){
+    MsgStream log(msgSvc(), name());		
+	log << MSG::DEBUG << "in getInfoFromMcParticleCol()" << endmsg;
+    // momentum, theta, phi
+    SmartDataPtr<Event::McParticleCol> mc_particle_col(eventSvc(), "/Event/MC/McParticleCol");
+	if (!mc_particle_col){
+	 	std::cout << "Could not retrieve McParticelCol" << std::endl;
+	  	return false;
+    }
+
+    double px, py, pz;
+    
+    Event::McParticleCol::iterator iter_mc=mc_particle_col->begin();
+    px = (*iter_mc)->initialFourMomentum().x();
+    py = (*iter_mc)->initialFourMomentum().y();
+    pz = (*iter_mc)->initialFourMomentum().z();
+
+    Hep3Vector final_pos;
+    final_pos = (*iter_mc)->finalPosition().v();
+    m_final_rxy = sqrt(final_pos.x()*final_pos.x() + final_pos.y()*final_pos.y());
+    m_final_rz = final_pos.z();
+
+    m_theta = (*iter_mc)->initialFourMomentum().theta();
+    m_phi = (*iter_mc)->initialFourMomentum().phi();
+    m_momentum = sqrt(px*px+py*py+pz*pz);
+
+    m_pdg_code = (*iter_mc)->particleProperty();
+
+    m_killed = ((*iter_mc)->statusFlags() & 1<<13) >> 13;
 
     return true;
 }
@@ -122,6 +157,7 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
 		G4cout << "AddLayerSvc\t" << "Error: Can't get AddLayerSvc." << G4endl;
   	}
 	bool add_layer_flag = add_layer_svc->getAddLayerFlag();
+
     int pid_code;
     RecMdcKalTrack::PidType pid_type;
 	if (add_layer_flag){
@@ -156,13 +192,6 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
     HepVector mdc_track_distance;
     for(EvtRecTrackCol::iterator trk=evt_rec_trk_col->begin(); trk!= evt_rec_trk_col->end(); trk++){
         m_track_id[m_ntrack] = (*trk)->trackId();
-        
-
-        m_is_e[m_ntrack] = (*trk)->isElectron();
-        m_is_mu[m_ntrack] = (*trk)->isMuon();
-        m_is_pi[m_ntrack] = (*trk)->isPion();
-        m_is_k[m_ntrack] = (*trk)->isKaon();
-        m_is_p[m_ntrack] = (*trk)->isProton();
 
         // extract mdc track info
         if ((*trk)->isMdcTrackValid()){           
@@ -179,7 +208,7 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
         if ((*trk)->isMdcKalTrackValid()){           
             RecMdcKalTrack* kal_track = (*trk)->mdcKalTrack();
             RecMdcKalTrack::setPidType  (pid_type);
-            log << MSG::DEBUG << "RecMdcKalTrack::getPidType(): " << RecMdcKalTrack::getPidType() << endmsg;
+            // log << MSG::DEBUG << "RecMdcKalTrack::getPidType(): " << RecMdcKalTrack::getPidType() << endmsg;
             m_kal_p[m_ntrack] = kal_track->p();
 
             m_kal_px[m_ntrack] = kal_track->px();

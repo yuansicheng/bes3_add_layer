@@ -549,10 +549,10 @@ use MdcCalibFunSvc MdcCalibFunSvc-00-03-16 Mdc (/cvmfs/bes3.ihep.ac.cn/bes3sw/Bo
 use EmcCalibConstSvc EmcCalibConstSvc-00-00-12 Emc (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use RealizationSvc RealizationSvc-00-00-46 Simulation/Realization (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use GeneratorObject GeneratorObject-00-01-05 Generator (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
-use TruSim TruSim-00-00-17 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
+use TruSim TruSim-00-00-17 Simulation/BOOST (/junofs/users/yuansc/bes3_add_layer/code/boss/workarea)
 use G4Svc G4Svc-00-01-52 Simulation (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use MucSim MucSim-00-01-03 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
-use EmcSim EmcSim-00-00-46 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
+use EmcSim EmcSim-00-00-46 Simulation/BOOST (/junofs/users/yuansc/bes3_add_layer/code/boss/workarea)
 use TofSim TofSim-00-02-37 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use MdcSim MdcSim-00-00-73 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 ----------> tags

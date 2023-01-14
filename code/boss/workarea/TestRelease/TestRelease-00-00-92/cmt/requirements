@@ -52,6 +52,7 @@ use TagWriterAlg  TagWriterAlg-*    Reconstruction
 use DiGamAlg       DiGamAlg-*       DQA
 #=========  for simulation         ============
 use BesSim         BesSim-*         Simulation/BOOST
+use TruSim         TruSim-*         Simulation/BOOST
 use MdcTunningSvc  MdcTunningSvc-*  Simulation/BOOST
 use BesEventMixer  BesEventMixer-*  Simulation
 use McTestAlg  McTestAlg-* Simulation

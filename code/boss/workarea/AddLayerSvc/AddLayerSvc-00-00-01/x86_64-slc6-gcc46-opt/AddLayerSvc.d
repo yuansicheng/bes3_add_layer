@@ -1,4 +1,4 @@
-../x86_64-slc6-gcc46-opt/AddLayerSvc.o: ../src/AddLayerSvc.cc \
+../x86_64-slc6-gcc46-opt/AddLayerSvc.o: ../src/components/AddLayerSvc.cc \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/MsgStream.h \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/IMessageSvc.h \
  /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9/InstallArea/x86_64-slc6-gcc46-opt/include/GaudiKernel/IInterface.h \

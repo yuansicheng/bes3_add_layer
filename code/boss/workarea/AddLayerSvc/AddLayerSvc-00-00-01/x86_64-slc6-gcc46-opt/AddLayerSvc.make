@@ -3,7 +3,7 @@
 #====================================
 #  Library AddLayerSvc
 #
-#   Generated Tue Dec  6 00:33:20 2022  by yuansc
+#   Generated Fri Jan 13 16:44:29 2023  by yuansc
 #
 #====================================
 
@@ -213,20 +213,20 @@ $(bin)$(binobj)AddLayerSvc.d :
 
 $(bin)$(binobj)AddLayerSvc.o : $(cmt_final_setup_AddLayerSvc)
 
-$(bin)$(binobj)AddLayerSvc.o : $(src)AddLayerSvc.cc
-	$(cpp_echo) $(src)AddLayerSvc.cc
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(lib_AddLayerSvc_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(use_cppflags) $(AddLayerSvc_cppflags) $(lib_AddLayerSvc_cppflags) $(AddLayerSvc_cppflags) $(AddLayerSvc_cc_cppflags)  $(src)AddLayerSvc.cc
+$(bin)$(binobj)AddLayerSvc.o : $(src)components/AddLayerSvc.cc
+	$(cpp_echo) $(src)components/AddLayerSvc.cc
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(lib_AddLayerSvc_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(use_cppflags) $(AddLayerSvc_cppflags) $(lib_AddLayerSvc_cppflags) $(AddLayerSvc_cppflags) $(AddLayerSvc_cc_cppflags) -I../src/components $(src)components/AddLayerSvc.cc
 endif
 endif
 
 else
 $(bin)AddLayerSvc_dependencies.make : $(AddLayerSvc_cc_dependencies)
 
-$(bin)AddLayerSvc_dependencies.make : $(src)AddLayerSvc.cc
+$(bin)AddLayerSvc_dependencies.make : $(src)components/AddLayerSvc.cc
 
 $(bin)$(binobj)AddLayerSvc.o : $(AddLayerSvc_cc_dependencies)
-	$(cpp_echo) $(src)AddLayerSvc.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(lib_AddLayerSvc_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(use_cppflags) $(AddLayerSvc_cppflags) $(lib_AddLayerSvc_cppflags) $(AddLayerSvc_cppflags) $(AddLayerSvc_cc_cppflags)  $(src)AddLayerSvc.cc
+	$(cpp_echo) $(src)components/AddLayerSvc.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(lib_AddLayerSvc_pp_cppflags) $(AddLayerSvc_pp_cppflags) $(use_cppflags) $(AddLayerSvc_cppflags) $(lib_AddLayerSvc_cppflags) $(AddLayerSvc_cppflags) $(AddLayerSvc_cc_cppflags) -I../src/components $(src)components/AddLayerSvc.cc
 
 endif
 
