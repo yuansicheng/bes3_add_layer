@@ -175,7 +175,7 @@ void BesMcTruthWriter::SaveMcParticle()
 	        mcParticle->setVertexIndex0(startPoint->GetIndex());
           mcParticle->setVertexIndex1(vertex->GetIndex());
 
-          G4cout << "track->IsKilled() : " << track->IsKilled() << G4endl;
+          // G4cout << "track->IsKilled() : " << track->IsKilled() << G4endl;
           if (track->IsKilled()){
             mcParticle->addStatusFlag(1<<13);            
           }

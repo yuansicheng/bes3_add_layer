@@ -22,6 +22,9 @@ G4Svc.BoostLab = false;
 AddLayerSvc.AddLayerFlag = false;
 AddLayerSvc.Thickness = 0;
 AddLayerSvc.Material = "";
+AddLayerSvc.SaveAntiNeutronFinalMomentum = flase;
+AddLayerSvc.FileIndex = 0;
+
 
 BesSim.PipeSCM = 1;
 

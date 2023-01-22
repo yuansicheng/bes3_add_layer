@@ -60,14 +60,11 @@ StatusCode ExtractSingleParticle::execute(){
     MsgStream log(msgSvc(), name());		
 	log << MSG::DEBUG << "in execute()" << endmsg;
 
+    getInfoFromEventHeader();
     getInfoFromMcParticleCol();
     getInfoFromEvtRecTrack();
 
     m_tuple->write();
-    log << MSG::DEBUG << "m_event: " << m_event << endmsg;
-    m_event += 1;
-    m_event_id = m_event;
-
 
     return StatusCode::SUCCESS;
 }
@@ -83,11 +80,18 @@ StatusCode ExtractSingleParticle::finalize(){
 
 bool ExtractSingleParticle::bookNTuple(){
     m_tuple = ntupleSvc()->book ("FILE1/RecInfo", CLID_ColumnWiseTuple, "N-Tuple");
-    m_tuple->addItem("event_id", m_event_id);
+
+    // event header
+    m_tuple->addItem("run_no", m_run_no);
+    m_tuple->addItem("event", m_event);
 
     // mc partical
     m_tuple->addItem("pdg_code", m_pdg_code);
     m_tuple->addItem("momentum", m_momentum);
+    m_tuple->addItem("px", m_px);
+    m_tuple->addItem("py", m_py);
+    m_tuple->addItem("pz", m_pz);
+    m_tuple->addItem("cos_theta", m_cos_theta);
     m_tuple->addItem("theta", m_theta);
     m_tuple->addItem("phi", m_phi);
     m_tuple->addItem("killed", m_killed);
@@ -97,17 +101,29 @@ bool ExtractSingleParticle::bookNTuple(){
     m_tuple->addItem("ntrack", m_ntrack, 0, 100);
         m_tuple->addIndexedItem("trick_id", m_ntrack, m_track_id);
 
-        // mdc track info
-        m_tuple->addIndexedItem("mdc_p", m_ntrack, m_mdc_p);
-        m_tuple->addIndexedItem("mdc_px", m_ntrack, m_mdc_px);
-        m_tuple->addIndexedItem("mdc_py", m_ntrack, m_mdc_py);
-        m_tuple->addIndexedItem("mdc_pz", m_ntrack, m_mdc_pz);
+        // // mdc track info
+        // m_tuple->addIndexedItem("mdc_p", m_ntrack, m_mdc_p);
+        // m_tuple->addIndexedItem("mdc_px", m_ntrack, m_mdc_px);
+        // m_tuple->addIndexedItem("mdc_py", m_ntrack, m_mdc_py);
+        // m_tuple->addIndexedItem("mdc_pz", m_ntrack, m_mdc_pz);
 
         // kal track info
         m_tuple->addIndexedItem("kal_p", m_ntrack, m_kal_p);
         m_tuple->addIndexedItem("kal_px", m_ntrack, m_kal_px);
         m_tuple->addIndexedItem("kal_py", m_ntrack, m_kal_py);
         m_tuple->addIndexedItem("kal_pz", m_ntrack, m_kal_pz);
+        m_tuple->addIndexedItem("kal_theta", m_ntrack, m_kal_theta);
+        m_tuple->addIndexedItem("kal_phi", m_ntrack, m_kal_phi);
+
+    return true;
+}
+
+bool ExtractSingleParticle::getInfoFromEventHeader(){
+    MsgStream log(msgSvc(),name());
+    log << MSG::INFO << "in execute()" << endreq;
+    SmartDataPtr<Event::EventHeader> eventHeader(eventSvc(),"/Event/EventHeader");
+    m_run_no = eventHeader->runNumber();
+    m_event = eventHeader->eventNumber();
 
     return true;
 }
@@ -125,18 +141,22 @@ bool ExtractSingleParticle::getInfoFromMcParticleCol(){
     double px, py, pz;
     
     Event::McParticleCol::iterator iter_mc=mc_particle_col->begin();
-    px = (*iter_mc)->initialFourMomentum().x();
-    py = (*iter_mc)->initialFourMomentum().y();
-    pz = (*iter_mc)->initialFourMomentum().z();
+    m_px = (*iter_mc)->initialFourMomentum().x();
+    m_py = (*iter_mc)->initialFourMomentum().y();
+    m_pz = (*iter_mc)->initialFourMomentum().z();
 
     Hep3Vector final_pos;
     final_pos = (*iter_mc)->finalPosition().v();
     m_final_rxy = sqrt(final_pos.x()*final_pos.x() + final_pos.y()*final_pos.y());
     m_final_rz = final_pos.z();
 
-    m_theta = (*iter_mc)->initialFourMomentum().theta();
-    m_phi = (*iter_mc)->initialFourMomentum().phi();
-    m_momentum = sqrt(px*px+py*py+pz*pz);
+    Hep3Vector init_p;
+    init_p = (*iter_mc)->initialFourMomentum();
+
+    m_cos_theta = init_p.cosTheta();
+    m_theta = init_p.theta();
+    m_phi = init_p.phi();
+    m_momentum = init_p.r();
 
     m_pdg_code = (*iter_mc)->particleProperty();
 
@@ -193,16 +213,16 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
     for(EvtRecTrackCol::iterator trk=evt_rec_trk_col->begin(); trk!= evt_rec_trk_col->end(); trk++){
         m_track_id[m_ntrack] = (*trk)->trackId();
 
-        // extract mdc track info
-        if ((*trk)->isMdcTrackValid()){           
-            RecMdcTrack* mdc_track = (*trk)->mdcTrack();
-            m_mdc_p[m_ntrack] = mdc_track->p();
+        // // extract mdc track info
+        // if ((*trk)->isMdcTrackValid()){           
+        //     RecMdcTrack* mdc_track = (*trk)->mdcTrack();
+        //     m_mdc_p[m_ntrack] = mdc_track->p();
 
-            m_mdc_px[m_ntrack] = mdc_track->px();
-            m_mdc_py[m_ntrack] = mdc_track->py();
-            m_mdc_pz[m_ntrack] = mdc_track->pz();
+        //     m_mdc_px[m_ntrack] = mdc_track->px();
+        //     m_mdc_py[m_ntrack] = mdc_track->py();
+        //     m_mdc_pz[m_ntrack] = mdc_track->pz();
 
-        }
+        // }
 
         // extract kalman track info
         if ((*trk)->isMdcKalTrackValid()){           
@@ -214,6 +234,9 @@ bool ExtractSingleParticle::getInfoFromEvtRecTrack(){
             m_kal_px[m_ntrack] = kal_track->px();
             m_kal_py[m_ntrack] = kal_track->py();
             m_kal_pz[m_ntrack] = kal_track->pz();
+
+            m_kal_theta[m_ntrack] = kal_track->theta();
+            m_kal_phi[m_ntrack] = kal_track->phi();
 
         }
 

@@ -18,6 +18,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--log_level', type=int, default=5)
 parser.add_argument('--i', type=int)
 parser.add_argument('--template', type=str)
+parser.add_argument('--delete_rec', action='store_true')
 
 parser.add_argument('--add_layer_flag', type=str, default='flase')
 parser.add_argument('--particle_type', type=int, default=2)
@@ -50,3 +51,7 @@ with open(job_option_file, 'w') as f:
 # run job_option
 os.system('chmod 755 {}'.format(job_option_file))
 os.system('boss.exe {}'.format(job_option_file))
+
+# delete rec
+if args.delete_rec:
+    os.system('rm {}'.format(rec_file))

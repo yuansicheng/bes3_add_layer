@@ -28,6 +28,8 @@ events_per_file = 1e3
 add_layer_flag = 'true'
 particle_type = 4
 
+delete_rec = True
+
 run = True
 
 #############################################################################
@@ -52,6 +54,8 @@ for thickness in range(0,21,5):
     cmd.append('--particle_type {}'.format(particle_type))
     cmd.append('--thickness {}'.format(thickness))
     cmd.append('--material {}'.format(material))
+    if delete_rec:
+        cmd.append('--delete_rec')
 
     if run:
         cmd.append('--run')

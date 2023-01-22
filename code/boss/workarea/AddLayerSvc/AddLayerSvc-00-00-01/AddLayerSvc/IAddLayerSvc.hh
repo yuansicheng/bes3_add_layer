@@ -7,6 +7,7 @@
 
 #include <string>
 
+
 static const InterfaceID IID_IAddLayerSvc("IAddLayerSvc",1,0);
 
 class IAddLayerSvc: virtual public IInterface{
@@ -19,6 +20,10 @@ class IAddLayerSvc: virtual public IInterface{
         virtual float getThickness()=0;
         virtual int getParticleType()=0;
         virtual std::string getMaterialName()=0;
+
+        virtual void writeAntiNeutronMomentumOne(int, int, double, double, double, double, double, double )=0;
+
+        virtual bool getSaveAntiNeutronFinalMomentumFlag()=0;
 };
 
 #endif

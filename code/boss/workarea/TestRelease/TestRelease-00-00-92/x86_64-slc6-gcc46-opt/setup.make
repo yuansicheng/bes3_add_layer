@@ -962,10 +962,6 @@
 #   use MagneticField MagneticField-* 
 #   use PartPropSvc *  (no_version_directory)
 #   use VertexFit VertexFit-* Analysis
-#   use AddLayerSvc * 
-#     use BesPolicy BesPolicy-01-* 
-#     use GaudiInterface GaudiInterface-01-* External
-#     use BesGeant4 BesGeant4-00-* External
 # use TrkReco TrkReco-* Reconstruction
 #   use RawDataProviderSvc RawDataProviderSvc-* Event
 #   use BesPolicy BesPolicy-01-* 
@@ -1212,7 +1208,6 @@
 #     use BesGeant4 BesGeant4-00-* External
 #   use EventNavigator EventNavigator-* Event
 #   use DetVerSvc DetVerSvc-* Utilities
-#   use AddLayerSvc * 
 # use TruSim TruSim-* Simulation/BOOST
 # use MdcTunningSvc MdcTunningSvc-* Simulation/BOOST
 # use BesEventMixer BesEventMixer-* Simulation
@@ -2066,7 +2061,6 @@ use HltTools HltTools-01-00-02 EventFilter/HltUtilities (/cvmfs/bes3.ihep.ac.cn/
 use HltSteerData HltSteerData-01-00-03 EventFilter/HltProcessor (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use BesKernel BesKernel-00-00-03 Control (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use BesServices BesServices-00-00-11 Control (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
-use AddLayerSvc AddLayerSvc-00-00-01  (/junofs/users/yuansc/bes3_add_layer/code/boss/workarea)
 use ZddEvent ZddEvent-00-00-04 Event (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use TagFilterSvc TagFilterSvc-00-00-16 Event (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use DataInfoSvc DataInfoSvc-00-00-03 Control (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
@@ -2157,7 +2151,7 @@ use EmcCalibConstSvc EmcCalibConstSvc-00-00-12 Emc (/cvmfs/bes3.ihep.ac.cn/bes3s
 use RealizationSvc RealizationSvc-00-00-46 Simulation/Realization (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use G4Svc G4Svc-00-01-52 Simulation (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use McTestAlg McTestAlg-00-00-10 Simulation (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
-use EmcSim EmcSim-00-00-46 Simulation/BOOST (/junofs/users/yuansc/bes3_add_layer/code/boss/workarea)
+use EmcSim EmcSim-00-00-46 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use CalibSvc CalibSvc-00-02-07 Calibration (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use MucCalibConstSvc MucCalibConstSvc-00-01-10 Muc (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use TofSimSvc TofSimSvc-00-00-04 Tof (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
@@ -2183,7 +2177,7 @@ use HltMakerAlg HltMakerAlg-00-00-06 Event (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7
 use EventNavigator EventNavigator-00-01-03 Event (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use MucCalibAlg MucCalibAlg-00-02-16 Muc (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use MucSim MucSim-00-01-03 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
-use BesSim BesSim-00-01-24 Simulation/BOOST (/junofs/users/yuansc/bes3_add_layer/code/boss/workarea)
+use BesSim BesSim-00-01-24 Simulation/BOOST (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use MucRecAlg MucRecAlg-00-03-08 Reconstruction (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use TrkBase TrkBase-00-01-12 Reconstruction/MdcPatRec (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use TrkFitter TrkFitter-00-01-11 Reconstruction/MdcPatRec (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
@@ -2239,7 +2233,7 @@ use DTagSkim DTagSkim-00-00-06 Reconstruction (/cvmfs/bes3.ihep.ac.cn/bes3sw/Bos
 use BeamParamsAlg BeamParamsAlg-00-00-10 Reconstruction (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use VeeVertexAlg VeeVertexAlg-00-00-05 Reconstruction (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use PrimaryVertexAlg PrimaryVertexAlg-00-00-04 Reconstruction (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
-use KalFitAlg KalFitAlg-00-07-55-p03 Reconstruction (/junofs/users/yuansc/bes3_add_layer/code/boss/workarea)
+use KalFitAlg KalFitAlg-00-07-55-p03 Reconstruction (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use AbsCor AbsCor-00-00-36 Analysis/PhotonCor (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use PipiJpsiAlg PipiJpsiAlg-00-00-03 Analysis/Physics/PsiPrime (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
 use RhopiAlg RhopiAlg-00-00-23 Analysis/Physics (/cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5)
@@ -2250,14 +2244,13 @@ CMTr25 (from CMTVERSION)
 CMTp0 (from CMTVERSION)
 Linux (from uname) package [CMT LCG_Platforms BesPolicy] implies [Unix host-linux]
 x86_64-slc6-gcc46-opt (from CMTCONFIG) package [LCG_Platforms] implies [target-x86_64 target-slc6 target-gcc46 target-opt]
-boss_no_config (from PROJECT) excludes [boss_config]
-boss_root (from PROJECT) excludes [boss_no_root]
-boss_cleanup (from PROJECT) excludes [boss_no_cleanup]
-boss_scripts (from PROJECT) excludes [boss_no_scripts]
-boss_prototypes (from PROJECT) excludes [boss_no_prototypes]
-boss_with_installarea (from PROJECT) excludes [boss_without_installarea]
-boss_with_version_directory (from PROJECT) excludes [boss_without_version_directory]
-boss (from PROJECT)
+boss_test_no_config (from PROJECT) excludes [boss_test_config]
+boss_test_root (from PROJECT) excludes [boss_test_no_root]
+boss_test_cleanup (from PROJECT) excludes [boss_test_no_cleanup]
+boss_test_scripts (from PROJECT) excludes [boss_test_no_scripts]
+boss_test_prototypes (from PROJECT) excludes [boss_test_no_prototypes]
+boss_test_with_installarea (from PROJECT) excludes [boss_test_without_installarea]
+boss_test_with_version_directory (from PROJECT) excludes [boss_test_without_version_directory]
 BOSS_no_config (from PROJECT) excludes [BOSS_config]
 BOSS_root (from PROJECT) excludes [BOSS_no_root]
 BOSS_cleanup (from PROJECT) excludes [BOSS_no_cleanup]
@@ -2304,7 +2297,7 @@ ROOT_GE_5_19 (from package LCG_Configuration)
 HasAthenaRunTime (from package BesPolicy)
 ROOTBasicLibs (from package BesROOT)
 ----------> CMTPATH
-# Add path /junofs/users/yuansc/bes3_add_layer/code/boss/workarea from initialization
+# Add path /junofs/users/yuansc/bes3_add_layer/code/boss_test/workarea from initialization
 # Add path /cvmfs/bes3.ihep.ac.cn/bes3sw/Boss/7.0.5 from initialization
 # Add path /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/gaudi/GAUDI_v23r9 from initialization
 # Add path /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/ExternalLib/LCGCMT/LCGCMT_65a from initialization

@@ -1,4 +1,4 @@
-document cmt_action_runner CompilePython -group=cmt_actions action_value=python'"'" "'"'-m'"'" "'"'compileall'"'" "'"'/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/InstallArea/x86_64-slc6-gcc46-opt/python'"'" "'"'/junofs/users/yuansc/bes3_add_layer/code/boss/workarea/InstallArea/x86_64-slc6-gcc46-opt/scripts
+document cmt_action_runner CompilePython -group=cmt_actions action_value=python'"'" "'"'-m'"'" "'"'compileall'"'" "'"'/x86_64-slc6-gcc46-opt/python'"'" "'"'/x86_64-slc6-gcc46-opt/scripts
 make_fragment make_header /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/contrib/CMT/v1r25/mgr/fragments/make_header
 make_fragment dependencies /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/contrib/CMT/v1r25/mgr/fragments/dependencies
 make_fragment cleanup_header /cvmfs/bes3.ihep.ac.cn/bes3sw/ExternalLib/SLC6/contrib/CMT/v1r25/mgr/fragments/cleanup_header

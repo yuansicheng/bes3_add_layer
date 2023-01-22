@@ -1,0 +1,18 @@
+/BField.h/1.5/Mon Apr 11 13:31:08 2011//TVertexFit-00-02-85
+/FastVertexFit.h/1.1/Thu Jul 24 02:39:32 2008//TVertexFit-00-02-85
+/GammaShape.h/1.3/Mon Apr 11 13:31:08 2011//TVertexFit-00-02-85
+/HTrackParameter.h/1.8/Tue Nov 22 09:36:41 2011//TVertexFit-00-02-85
+/Helix.h/1.5/Mon Apr 11 13:31:08 2011//TVertexFit-00-02-85
+/IVertexDbSvc.h/1.3/Tue Oct 29 05:08:53 2019//TVertexFit-00-02-85
+/KalmanKinematicFit.h/1.3/Mon May 17 06:53:51 2010//TVertexFit-00-02-85
+/KalmanVertexFit.h/1.8/Fri Nov 14 04:42:10 2008//TVertexFit-00-02-85
+/KinematicConstraints.h/1.9/Mon Apr 11 13:31:08 2011//TVertexFit-00-02-85
+/KinematicFit.h/1.13/Mon Nov 15 03:03:31 2010//TVertexFit-00-02-85
+/SecondVertexFit.h/1.6/Thu Jan  2 06:11:30 2014//TVertexFit-00-02-85
+/TrackPool.h/1.11/Mon Apr 11 13:31:08 2011//TVertexFit-00-02-85
+/VertexConstraints.h/1.6/Fri Aug 13 06:18:59 2010//TVertexFit-00-02-85
+/VertexDbSvc.h/1.12/Tue Oct 29 05:08:53 2019//TVertexFit-00-02-85
+/VertexFit.h/1.16/Thu Jan  2 06:11:30 2014//TVertexFit-00-02-85
+/VertexParameter.h/1.3/Wed Nov  5 12:09:37 2008//TVertexFit-00-02-85
+/WTrackParameter.h/1.10/Mon Apr 11 13:31:08 2011//TVertexFit-00-02-85
+D

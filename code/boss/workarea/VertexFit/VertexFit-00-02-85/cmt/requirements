@@ -1,0 +1,37 @@
+package VertexFit
+author K. L. He <hekl@ihep.ac.cn>
+
+branches cmt src VertexFit
+
+use BesPolicy BesPolicy-01-*
+use GaudiInterface GaudiInterface-* External
+use BesCLHEP BesCLHEP-*   External
+use MYSQL    MYSQL-*      External
+use DstEvent  DstEvent-*  Event
+use MdcRecEvent MdcRecEvent-* Mdc
+use EmcRecEventModel  EmcRecEventModel-*  Emc
+use MagneticField MagneticField-* 
+use EventModel   EventModel-*  Event
+use EvtRecEvent EvtRecEvent-* Event
+use DatabaseSvc DatabaseSvc-* Database
+
+apply_pattern installed_linkopts
+
+macro_append VertexFit_cppflags " -w "
+#Linker library
+#library VertexFit  ../src/*.cxx 
+
+apply_pattern package_linkopts
+apply_pattern package_stamps
+apply_pattern ld_library_path
+
+apply_pattern package_shlibflags
+
+
+
+include_dirs $(VertexFit_root)/VertexDbSvc   \
+include_dirs $(VertexFit_root)/src/test   \
+#apply_pattern dual_use_library files="*.cc *.cxx  components/*.cxx test/*.cxx"
+apply_pattern component_library
+library VertexFit *.cc *.cxx components/*.cxx test/*.cxx
+

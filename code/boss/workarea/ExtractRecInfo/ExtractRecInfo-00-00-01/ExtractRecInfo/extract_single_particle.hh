@@ -18,17 +18,23 @@ class ExtractSingleParticle : public Algorithm {
 
     private:
         bool bookNTuple();
+        bool getInfoFromEventHeader();
         bool getInfoFromMcParticleCol();
         bool getInfoFromEvtRecTrack();
 
-        int m_event;
-
         NTuple::Tuple*  m_tuple;
-        NTuple::Item<int> m_event_id;
+
+        NTuple::Item<int> m_run_no;
+        NTuple::Item<int> m_event;
   
         NTuple::Item<int> m_pdg_code;
         NTuple::Item<float> m_momentum;
+        NTuple::Item<float> m_px;
+        NTuple::Item<float> m_py;
+        NTuple::Item<float> m_pz;
         NTuple::Item<float> m_theta;
+        NTuple::Item<float> m_cos_theta;
+
         NTuple::Item<float> m_phi;
         NTuple::Item<bool> m_killed;
         NTuple::Item<float> m_final_rxy;
@@ -37,15 +43,18 @@ class ExtractSingleParticle : public Algorithm {
         NTuple::Item<int> m_ntrack;
             NTuple::Array<int> m_track_id;
 
-            NTuple::Array<double> m_mdc_p;
-            NTuple::Array<double> m_mdc_px;
-            NTuple::Array<double> m_mdc_py;
-            NTuple::Array<double> m_mdc_pz;
+            // NTuple::Array<double> m_mdc_p;
+            // NTuple::Array<double> m_mdc_px;
+            // NTuple::Array<double> m_mdc_py;
+            // NTuple::Array<double> m_mdc_pz;
 
             NTuple::Array<double> m_kal_p;
             NTuple::Array<double> m_kal_px;
             NTuple::Array<double> m_kal_py;
             NTuple::Array<double> m_kal_pz;
+
+            NTuple::Array<double> m_kal_theta;
+            NTuple::Array<double> m_kal_phi;
 
             NTuple::Array<bool> m_is_e;
             NTuple::Array<bool> m_is_mu;

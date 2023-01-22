@@ -151,10 +151,10 @@ G4bool BesEmcSD::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 	   << " and the volume is " << physVol->GetName()
 	   << G4endl;
 
-  // yuansc
-  if ((aStep->GetTrack()->GetDefinition()->GetParticleName() == "anti_neutron")){
-    aStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);
-  }
+  // // yuansc
+  // if ((aStep->GetTrack()->GetDefinition()->GetParticleName() == "anti_neutron")){
+  //   aStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);
+  // }
 
   //-----------------------------------------------------  
   G4int trackId = aStep->GetTrack()->GetTrackID();

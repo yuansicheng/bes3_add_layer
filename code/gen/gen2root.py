@@ -30,8 +30,11 @@ parser.add_argument('--add_layer_flag', type=str, default='flase')
 parser.add_argument('--particle_type', type=int, default=2)
 parser.add_argument('--thickness', type=float, default=0)
 parser.add_argument('--material', type=str, default='')
+parser.add_argument('--save_anti_neutron_final_momentum', type=str, default='false')
 
 parser.add_argument('--run', action='store_true')
+
+parser.add_argument('--delete_rec', action='store_true')
 
 args = parser.parse_args()
 
@@ -70,6 +73,7 @@ for i in range(int(args.n/args.events_per_file)):
         job_content.append('\t--template {}\\'.format(args.job_option_template_sim))
         job_content.append('\t--card {}\\'.format(args.card))
         job_content.append('\t--add_layer_flag {}\\'.format(args.add_layer_flag))
+        job_content.append('\t--save_anti_neutron_final_momentum {}\\'.format(args.save_anti_neutron_final_momentum))
         job_content.append('\t--thickness {}\\'.format(args.thickness))
         job_content.append('\t--material {}'.format(args.material))
 
@@ -87,7 +91,9 @@ for i in range(int(args.n/args.events_per_file)):
         job_content.append('\t--i {}\\'.format(i))
         job_content.append('\t--template {}\\'.format(args.job_option_template_root))
         job_content.append('\t--add_layer_flag {}\\'.format(args.add_layer_flag))
-        job_content.append('\t--particle_type {}'.format(args.particle_type))
+        if args.delete_rec:
+            job_content.append('\t--delete_rec\\')
+        
         
 
     with open(job_file, 'w') as f:

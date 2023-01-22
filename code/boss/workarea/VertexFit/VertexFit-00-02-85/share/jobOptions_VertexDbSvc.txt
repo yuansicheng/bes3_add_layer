@@ -1,0 +1,9 @@
+#include "$OFFLINEEVENTLOOPMGRROOT/share/OfflineEventLoopMgr_Option.txt"
+#include "$DATABASESVCROOT/share/DatabaseConfig.txt"
+ApplicationMgr.DLLs   += {"VertexFit"};
+ApplicationMgr.ExtSvc  += {"VertexDbSvc"};
+//VertexDbSvc.BossVer="6.6.2";
+
+VertexDbSvc.BossRelease="7.0.5";
+
+

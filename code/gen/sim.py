@@ -24,6 +24,7 @@ parser.add_argument('--template', type=str)
 parser.add_argument('--add_layer_flag', type=str, default='flase')
 parser.add_argument('--thickness', type=float, default=0)
 parser.add_argument('--material', type=str, default='')
+parser.add_argument('--save_anti_neutron_final_momentum', type=str, default='false')
 args = parser.parse_args()
 
 
@@ -40,7 +41,8 @@ replace_dict = {
     'AddLayerSvc.AddLayerFlag': args.add_layer_flag ,
     'AddLayerSvc.Thickness': args.thickness ,
     'AddLayerSvc.Material': args.material ,
-
+    'AddLayerSvc.SaveAntiNeutronFinalMomentum': args.save_anti_neutron_final_momentum ,
+    'AddLayerSvc.FileIndex': args.i ,
 }
 
 with open(args.template, 'r') as f:

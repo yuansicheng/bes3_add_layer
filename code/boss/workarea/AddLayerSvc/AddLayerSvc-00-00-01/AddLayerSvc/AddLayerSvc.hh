@@ -12,6 +12,14 @@
 #include <string>
 #include <map>
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+#include "CLHEP/Vector/ThreeVector.h"
+#include "CLHEP/Vector/LorentzVector.h"
+
 class AddLayerSvc: public Service, virtual public IAddLayerSvc{
     public:
         AddLayerSvc(const std::string& name, ISvcLocator* svcloc);
@@ -29,6 +37,9 @@ class AddLayerSvc: public Service, virtual public IAddLayerSvc{
 
         std::string getMaterialName(){return m_material;}
 
+        void writeAntiNeutronMomentumOne(int, int, double, double, double, double, double, double);
+        bool getSaveAntiNeutronFinalMomentumFlag(){return m_save_anti_neutron_final_momentum;}
+
     private:
         bool m_add_layer_flag;
         std::map<std::string, G4Material*> m_material_map;
@@ -36,7 +47,13 @@ class AddLayerSvc: public Service, virtual public IAddLayerSvc{
         int m_particle_type;
         std::string m_material;
 
+        bool m_save_anti_neutron_final_momentum;
+        int m_file_index;
+        std::ofstream m_anti_neutron_final_momentum;
+
         void setMaterial();
+
+        
 
 };
 

@@ -1,0 +1,24 @@
+
+#include "$EVENTWRITERROOT/share/jobOptions_EventWriter.txt"
+ApplicationMgr.DLLs += {"PNbarPiAlg"};
+ApplicationMgr.TopAlg += {"PNbarPi"};
+
+WriteMyDst.ItemList = {
+  "/Event/EventHeader#1",
+  "/Event/Dst/DstMdcTrackCol#1",
+  "/Event/Dst/DstMdcKalTrackCol#1",
+  "/Event/Dst/DstMdcDedxCol#1",
+  "/Event/Dst/DstTofTrackCol#1",
+  "/Event/Dst/DstEmcShowerCol#1",
+  "/Event/Dst/DstMucTrackCol#1",
+  "/Event/Dst/DstExtTrackCol#1",
+  "/Event/EvtRec/EvtRecEvent#1",
+  "/Event/EvtRec/EvtRecTrackCol#1",
+  "/Event/EvtRec/EvtRecPrimaryVertex#1",
+  "/Event/EvtRec/EvtRecVeeVertexCol#1",
+  "/Event/Trig/TrigData#1",
+  "/Event/Hlt/DstHltInf#1"
+};
+
+
+

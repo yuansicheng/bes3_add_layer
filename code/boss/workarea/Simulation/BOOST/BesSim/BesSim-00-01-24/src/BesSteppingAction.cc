@@ -7,6 +7,19 @@
 #include "G4UnitsTable.hh"
 #include "G4VProcess.hh"
 
+#include "AddLayerSvc/AddLayerSvc.hh"
+
+#include "GaudiKernel/ISvcLocator.h"
+#include "GaudiKernel/MsgStream.h"
+#include "GaudiKernel/SmartDataPtr.h"
+#include "GaudiKernel/Bootstrap.h"
+
+#include "EventModel/EventHeader.h"
+#include "EventModel/EventModel.h"
+#include "EventModel/Event.h"
+
+#include "GaudiKernel/IDataProviderSvc.h"
+
 BesSteppingAction::BesSteppingAction()
 { }
 
@@ -29,6 +42,55 @@ void BesSteppingAction::UserSteppingAction(const G4Step* currentStep)
     G4cout<<"StepNumber>=20000 !!!"<<G4endl;
     currentTrack->SetTrackStatus(fKillTrackAndSecondaries);
   }
+
+
+  // yuansc
+  // query AddLayerSvc to get thickness
+  ISvcLocator* svcLocator = Gaudi::svcLocator();
+  IAddLayerSvc* add_layer_svc;
+  StatusCode sc = svcLocator->service("AddLayerSvc", add_layer_svc);
+  if(sc != StatusCode::SUCCESS) {
+    std::cout << "AddLayerSvc\t" << "Error: Can't get AddLayerSvc." << std::endl;
+  }
+  
+  if (add_layer_svc->getSaveAntiNeutronFinalMomentumFlag() && currentTrack->GetDefinition()->GetParticleName()=="anti_neutron"){
+
+    float thickness = 0.;
+    if (add_layer_svc->getAddLayerFlag()){
+      thickness = add_layer_svc->getThickness();
+    }
+
+    double x, y, z, rxy;
+    x = std::abs(currentPosition.x());
+    y = std::abs(currentPosition.y());
+    z = std::abs(currentPosition.z());
+
+    rxy = sqrt(x*x + y*y);
+
+    // std::cout << "rxy: " << rxy << std::endl;
+
+    if (
+      rxy > (3.37*cm + (thickness/10)*cm) ||
+      z > 13.4*cm
+    ){
+
+      IDataProviderSvc* evtSvc;
+      StatusCode sc=svcLocator->service("EventDataSvc", evtSvc);
+      SmartDataPtr<Event::EventHeader> evt(evtSvc,"/Event/EventHeader");
+      int run_no, event;
+      run_no = evt->runNumber();
+      event = evt->eventNumber();
+
+
+    
+      G4ThreeVector p = currentTrack->GetMomentum();
+      add_layer_svc->writeAntiNeutronMomentumOne(run_no, event, p.r(), p.x(), p.y(), p.z(), p.theta(), p.phi());
+
+      currentTrack->SetTrackStatus(fKillTrackAndSecondaries);
+    }
+  }
+
+
 /*     G4cout.precision(15);
      G4cout<<"#Step# "<<currentTrack->GetCurrentStepNumber()<<" pName "<<currentTrack->GetDefinition()->GetParticleName()<<" prex prey prez "<<currentStep->GetPreStepPoint()->GetPosition().x()/mm<<" "<<currentStep->GetPreStepPoint()->GetPosition().y()/mm<<" "<<currentStep->GetPreStepPoint()->GetPosition().z()/mm<<G4endl;
      G4cout<<"prepx prepy prepz "<<currentStep->GetPreStepPoint()->GetMomentum().x()/GeV<<" "<<currentStep->GetPreStepPoint()->GetMomentum().y()/GeV<<" "<<currentStep->GetPreStepPoint()->GetMomentum().z()/GeV<<G4endl;

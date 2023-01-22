@@ -12,12 +12,19 @@
 #include "GaudiKernel/Bootstrap.h"
 
 #include "AddLayerSvc/AddLayerSvc.hh"
+#include "CLHEP/Vector/ThreeVector.h"
+#include "CLHEP/Vector/LorentzVector.h"
 
 AddLayerSvc::AddLayerSvc(const std::string& name, ISvcLocator* svcloc): Service (name, svcloc){
     declareProperty("AddLayerFlag", m_add_layer_flag = false);
     declareProperty("ParticleType", m_particle_type = 0);
     declareProperty("Thickness", m_thickness = 0.);
     declareProperty("Material", m_material = "");
+
+    // save anti_neutron final momentum
+    declareProperty("SaveAntiNeutronFinalMomentum", m_save_anti_neutron_final_momentum = false);
+    declareProperty("FileIndex", m_file_index = 0);
+
 
     setMaterial();
 }
@@ -39,12 +46,26 @@ StatusCode AddLayerSvc::initialize(){
     log << MSG::INFO << "========== AddLayerSvc::initialize() ==========" << endreq;
 
     StatusCode sc = Service::initialize();
+
+    // if necessary, open a csv file
+    if (m_save_anti_neutron_final_momentum){
+        char path[30];
+        sprintf(path, "anti_neutron_%d.csv", m_file_index);
+        m_anti_neutron_final_momentum.open(path);
+
+        m_anti_neutron_final_momentum << "run_no,event,final_p,final_px,final_py,final_pz,final_theta,final_phi\n";
+    }
+
     return sc;
 }
 
 StatusCode AddLayerSvc::finalize(){
     MsgStream log(messageService(), name());
     log << MSG::INFO << "========== AddLayerSvc::finalize() ==========" << endreq;
+
+    if (m_save_anti_neutron_final_momentum){
+        m_anti_neutron_final_momentum.close();
+    }
 
     return StatusCode::SUCCESS;
 }
@@ -70,10 +91,11 @@ void AddLayerSvc::setMaterial(){
     m_material_map["LD"]  = new G4Material(name="LD",1,4.03*g/mole,density);
 
     // CsI
+    density = 4.51*g/cm3;
     G4Material* CsI = new G4Material(name="CsI",density,nel=2);
     CsI->AddElement(Cs, natoms=1);
     CsI->AddElement(I, natoms=1);
-    m_material_map["LD"] = CsI;
+    m_material_map["CsI"] = CsI;
     
 }
 
@@ -82,9 +104,21 @@ G4Material* AddLayerSvc::getMaterial(std::string material_name){
     std::map<std::string, G4Material*>::iterator it;
     it = m_material_map.find(material_name);
     if (it == m_material_map.end()){
-        log << MSG::ERROR << "G4Material" << material_name << "has not been defined" << endreq;
+        log << MSG::ERROR << "G4Material" << material_name << " has not been defined" << endreq;
         it = m_material_map.begin();
     }
     return it->second;
 }
 
+
+void AddLayerSvc::writeAntiNeutronMomentumOne(int run_no, int event, double p, double px, double py, double pz, double theta, double phi){
+    m_anti_neutron_final_momentum << 
+       run_no << "," <<
+       event << "," <<
+       p << "," <<
+       px << "," <<
+       py << "," <<
+       pz << "," <<
+       theta << "," <<
+       phi << "\n";
+}
