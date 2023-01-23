@@ -21,9 +21,9 @@ if not os.path.isdir(path):
 log_level = 6
 card = 'decay_card/p+pi-nbar/phsp.dec'
 
-# do_sim = True
+do_sim = True
 do_rec = True
-do_sim = False
+# do_sim = False
 # do_rec = False
 do_root = True
 

@@ -35,7 +35,7 @@ if not os.path.isdir(target_path):
 data_path = os.path.join(this_path, args.data_path, args.particle_type)
 
 # loop
-for root_path in tqdm(glob(os.path.join(data_path, 'random/*/*'))):
+for root_path in tqdm(glob(os.path.join(data_path, '*/*/*'))):
     root_path_copy = root_path
     root_path_split = root_path_copy.replace('\\', '/').split('/')
     material, thickness = root_path_split[-2].split('_')[1], int(root_path_split[-1])

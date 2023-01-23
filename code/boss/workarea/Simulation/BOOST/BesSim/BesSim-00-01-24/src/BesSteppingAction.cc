@@ -52,6 +52,11 @@ void BesSteppingAction::UserSteppingAction(const G4Step* currentStep)
   if(sc != StatusCode::SUCCESS) {
     std::cout << "AddLayerSvc\t" << "Error: Can't get AddLayerSvc." << std::endl;
   }
+
+  // kill anti-n0 for ppinbar
+  if (!add_layer_svc->getSaveAntiNeutronFinalMomentumFlag() && currentTrack->GetDefinition()->GetParticleName()=="anti_neutron"){
+    currentTrack->SetTrackStatus(fKillTrackAndSecondaries);
+  }
   
   if (add_layer_svc->getSaveAntiNeutronFinalMomentumFlag() && currentTrack->GetDefinition()->GetParticleName()=="anti_neutron"){
 
@@ -66,6 +71,7 @@ void BesSteppingAction::UserSteppingAction(const G4Step* currentStep)
     z = std::abs(currentPosition.z());
 
     rxy = sqrt(x*x + y*y);
+    
 
     // std::cout << "rxy: " << rxy << std::endl;
 

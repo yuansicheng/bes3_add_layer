@@ -9,6 +9,7 @@ import os, sys, argparse, logging
 from tqdm import tqdm
 import pandas as pd
 import numpy as np
+np.seterr(divide='ignore',invalid='ignore')
 import uproot
 import math
 
@@ -101,23 +102,29 @@ def readRootFilesPpinbar(root_files):
 def ppinbarDf2Res(df, all_num, **kwargs):
     index = getIndex('p')
 
+    print(df.shape[0])
+
     if not df.shape[0]:
         return pd.Series([np.nan]*len(index), index=index)
 
     df = df.copy()
-    df['theta'] = df.apply(pxpypz2Theta2, axis=1, args=('pxmcnbar', 'pymcnbar', 'pzmcnbar'))
+    # df['theta'] = df.apply(pxpypz2Theta2, axis=1, args=('pxmcnbar', 'pymcnbar', 'pzmcnbar'))
     df['vtxnbar_theta'] = df.apply(pxpypz2Theta2, axis=1, args=('vtxnbar_px', 'vtxnbar_py', 'vtxnbar_pz'))
-    df['dp'] = df.vtxnbar_e - df.emcnbar
-    df['dtheta'] = df.kal_theta - df.theta
+    df['vtxnbar_p'] = (df.vtxnbar_px**2 + df.vtxnbar_py**2 + df.vtxnbar_pz**2) ** 0.5
+    df['dp'] = df.vtxnbar_p - df.momentum
+    df['dtheta'] = df.vtxnbar_theta - df.theta
 
     # df = df[(df.dp.abs()<0.05) & (df.dtheta.abs()<0.1)]
     efficiency = df.shape[0] / all_num if all_num else 0
 
+    # print(df)
 
     try:
+        if df.shape[0]<10: raise ValueError
         p_loc, p_loc_err, p_scale, p_scale_err = fitNorm(df['dp'])
         theta_loc, theta_loc_err, theta_scale, theta_scale_err = fitNorm(df['dtheta'])
-    except:
+    except Exception as e:
+        print(e)
         p_loc, p_loc_err, p_scale, p_scale_err, theta_loc, theta_loc_err, theta_scale, theta_scale_err = tuple([np.nan]*8)
 
     df['delta_angle'] = df.apply(getDeltaAngle2, axis=1)
