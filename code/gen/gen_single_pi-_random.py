@@ -39,9 +39,9 @@ run = True
 
 #############################################################################
 mamaterials = {
-    'LH': list(range(0,21,10)), 
-    'LD': list(range(0,21,10)), 
-    'CsI': list(range(0,5,1))
+    # 'LH': list(range(0,21,10)), 
+    # 'LD': list(range(0,21,10)), 
+    'CsI': list(range(0,21,5))
 }
 
 for material, thickness_range in mamaterials.items():
