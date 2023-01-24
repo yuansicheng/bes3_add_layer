@@ -123,12 +123,14 @@ def ppinbarDf2Res(df, all_num, **kwargs):
         if df.shape[0]<10: raise ValueError
         p_loc, p_loc_err, p_scale, p_scale_err = fitNorm(df['dp'])
         theta_loc, theta_loc_err, theta_scale, theta_scale_err = fitNorm(df['dtheta'])
+        df['delta_angle'] = df.apply(getDeltaAngle2, axis=1)
+        delta_angle_one_sigma = np.percentile(df['delta_angle'].dropna(), 68.3)
     except Exception as e:
         print(e)
-        p_loc, p_loc_err, p_scale, p_scale_err, theta_loc, theta_loc_err, theta_scale, theta_scale_err = tuple([np.nan]*8)
+        p_loc, p_loc_err, p_scale, p_scale_err, theta_loc, theta_loc_err, theta_scale, theta_scale_err, delta_angle_one_sigma = tuple([np.nan]*9)
 
-    df['delta_angle'] = df.apply(getDeltaAngle2, axis=1)
-    delta_angle_one_sigma = np.percentile(df['delta_angle'].dropna(), 68.3)
+    
+
 
     return pd.Series([p_loc, p_loc_err, p_scale, p_scale_err, theta_loc, theta_loc_err, theta_scale, theta_scale_err, efficiency, df.shape[0], all_num, delta_angle_one_sigma], index=index)
 
@@ -186,7 +188,7 @@ def ppiDf2Res(df, **kwargs):
         return pd.Series([np.nan]*len(index), index=index)
 
     df = df.copy()
-    df['kal_theta'] = df.apply(pxpypz2Theta, axis=1)
+    df['kal_theta'] = df.apply(pxpypz2Theta2, axis=1, args=('kal_px', 'kal_py', 'kal_pz'))
     df['dp'] = df.kal_p - df.momentum
     df['dtheta'] = df.kal_theta - df.theta
 
@@ -197,11 +199,10 @@ def ppiDf2Res(df, **kwargs):
     try:
         p_loc, p_loc_err, p_scale, p_scale_err = fitNorm(df['dp'])
         theta_loc, theta_loc_err, theta_scale, theta_scale_err = fitNorm(df['dtheta'])
+        df['delta_angle'] = df.apply(getDeltaAngle, axis=1)
+        delta_angle_one_sigma = np.percentile(df['delta_angle'].dropna(), 68.3)
     except:
-        p_loc, p_loc_err, p_scale, p_scale_err, theta_loc, theta_loc_err, theta_scale, theta_scale_err = tuple([np.nan]*8)
-
-    df['delta_angle'] = df.apply(getDeltaAngle, axis=1)
-    delta_angle_one_sigma = np.percentile(df['delta_angle'].dropna(), 68.3)
+        p_loc, p_loc_err, p_scale, p_scale_err, theta_loc, theta_loc_err, theta_scale, theta_scale_err, delta_angle_one_sigma = tuple([np.nan]*9)
 
     return pd.Series([p_loc, p_loc_err, p_scale, p_scale_err, theta_loc, theta_loc_err, theta_scale, theta_scale_err, efficiency, df.shape[0], raw_shape, delta_angle_one_sigma], index=index)
 
