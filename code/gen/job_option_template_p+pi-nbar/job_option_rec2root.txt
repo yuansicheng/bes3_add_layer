@@ -5,6 +5,9 @@
 
 #include "$MCDECAYMODESVCROOT/share/GetDecayMode.txt"
 
+#include "$VERTEXFITROOT/share/jobOptions_VertexDbSvc.txt"
+#include "$ABSCORROOT/share/jobOptions_AbsCor.txt"
+
 //**************AddLayerSvc******************
 //#include "$ADDLAYERSVCROOT/share/jobOptions_AddLayerSvc.txt"
 //AddLayerSvc.AddLayerFlag = true; 

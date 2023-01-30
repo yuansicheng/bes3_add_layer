@@ -12,12 +12,14 @@ import numpy as np
 from glob import glob
 import matplotlib.pyplot as plt
 
+from time import time
+
 from scipy.interpolate import griddata
 
 import scienceplots
 plt.style.use(['science', 'nature', 'no-latex', 'notebook'])
 
-def plot3D(df, title='', xlabel='', ylabel='', figsize=(10, 6)):
+def plot3D(df, title='', xlabel='', ylabel='', figsize=(10, 6), save_eps=False):
     assert df.shape[1] == 3
     xi=np.linspace(min(df.iloc[:, 0]),max(df.iloc[:, 0]))
     yi=np.linspace(min(df.iloc[:, 1]),max(df.iloc[:, 1]))
@@ -35,6 +37,10 @@ def plot3D(df, title='', xlabel='', ylabel='', figsize=(10, 6)):
     if ylabel:
         ax.set_ylabel(ylabel)
 
+    if save_eps:
+        save_eps = save_eps if '.' in save_eps else ''
+        saveEps(save_eps)
+
     plt.show()
     plt.close()
 
@@ -42,3 +48,10 @@ def plot3D(df, title='', xlabel='', ylabel='', figsize=(10, 6)):
 # # test
 # df = pd.DataFrame(np.random.rand(100,3))
 # fig = plot3D(df)
+
+def saveEps(filename=''):
+    if not filename:
+        filename = '{}.eps'.format(time())
+    if not os.path.isdir(os.path.dirname(filename)):
+        os.makedirs(os.path.dirname(filename))
+    plt.savefig(filename, format='eps', dpi=1000)

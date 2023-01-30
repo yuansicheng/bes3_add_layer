@@ -26,6 +26,7 @@ do_rec = True
 # do_sim = False
 # do_rec = False
 do_root = True
+# do_root = False
 
 n = 1e6
 events_per_file = 1e4
@@ -33,7 +34,7 @@ events_per_file = 1e4
 add_layer_flag = 'true'
 particle_type = 0
 
-delete_rec = True
+delete_rec = False
 
 run = True
 
@@ -41,9 +42,9 @@ job_option_template_path = 'job_option_template_p+pi-nbar'
 
 #############################################################################
 mamaterials = {
-    'LH': list(range(0,21,10)), 
-    'LD': list(range(0,21,10)), 
-    'CsI': list(range(0,5,1))
+    # 'LH': list(range(0,21,10)), 
+    # 'LD': list(range(0,21,10)), 
+    'CsI': list(range(0,21,5))
 }
 
 for material, thickness_range in mamaterials.items():

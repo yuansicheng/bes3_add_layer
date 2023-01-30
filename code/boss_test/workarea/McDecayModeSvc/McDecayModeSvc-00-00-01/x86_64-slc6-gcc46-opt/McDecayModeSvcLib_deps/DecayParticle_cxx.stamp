@@ -1,0 +1,1 @@
+DecayParticle_cxx_dependencies =  ../src/DecayParticle.cxx   /home/zxrong/workarea-6.6.4.p01/InstallArea/include/McDecayModeSvc/McDecayModeSvc/PartId2Name.h   /home/zxrong/workarea-6.6.4.p01/InstallArea/include/McDecayModeSvc/McDecayModeSvc/DecayParticle.h  $(bin)McDecayModeSvcLib_deps/DecayParticle_cxx.stamp

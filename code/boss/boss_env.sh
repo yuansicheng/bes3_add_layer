@@ -11,7 +11,7 @@ source $BOSS_DIR/workarea/Simulation/BOOST/TruSim/TruSim-00-00-17/cmt/setup.sh
 
 
 source $BOSS_DIR/workarea/McDecayModeSvc/McDecayModeSvc-00-00-01/cmt/setup.sh
-# source $BOSS_DIR/workarea/VertexFit/VertexFit-00-02-85/cmt/setup.sh
 source $BOSS_DIR/workarea/PNbarPiAlg/PNbarPi-00-00-01/cmt/setup.sh
+source $BOSS_DIR/workarea/VertexFit/VertexFit-00-02-85/cmt/setup.sh
 
 
